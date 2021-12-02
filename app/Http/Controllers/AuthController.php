@@ -88,23 +88,56 @@ class AuthController extends FacebookProvider
     }  
 
 
-    public function userUpdate(Request $request,$id){
+    public function userUpdate(Request $request){
 
         try{
             $user= User::find($request->post('id')); 
             if(!empty($request->input('email'))){
                 $user->email = $request->input('email');
             }
-            $user->mobile = $request->input('mobile');
-            $user->date_of_birth = date("Y-m-d",strtotime( $request->input('date_of_birth')));
-            $user->visible_profile = $request->input('visible_profile');
-            $user->orientation = $request->input('orientation');
-            $user->relationship_status = $request->input('relationship_status');
-            $user->looking_for = $request->input('looking_for');
-            $user->pets = $request->input('pets');
-            $user->meet_at = $request->input('meet_at');
-            $user->religious_views = $request->input('religious_views');
-            $user->children = $request->input('children');
+            if(!empty($request->input('mobile'))){
+              $user->mobile = $request->input('mobile');
+            }
+            if(!empty($request->input('date_of_birth'))){
+              $user->date_of_birth = date("Y-m-d",strtotime( $request->input('date_of_birth')));
+            }
+            if(!empty($request->input('visible_profile'))){
+              $user->visible_profile = $request->input('visible_profile');
+            }
+            if(!empty($request->input('orientation'))){
+              $user->orientation = $request->input('orientation');
+            }
+            if(!empty($request->input('relationship_status'))){
+              $user->relationship_status = $request->input('relationship_status');
+            }
+            if(!empty($request->input('looking_for'))){
+              $user->looking_for = $request->input('looking_for');
+            }
+            if(!empty($request->input('pets'))){
+              $user->pets = $request->input('pets');
+            }
+            if(!empty($request->input('meet_at'))){
+              $user->meet_at = $request->input('meet_at');
+            }
+            if(!empty($request->input('religious_views'))){
+              $user->religious_views = $request->input('religious_views');
+            }
+            if(!empty($request->input('children'))){
+              $user->children = $request->input('children');
+            }
+            if(!empty($request->input('is_smoke'))){
+              $user->is_smoke = $request->input('is_smoke');
+            }
+            if(!empty($request->input('is_drink'))){
+              $user->is_drink = $request->input('is_drink');
+            }
+            if(!empty($request->input('is_canabis'))){
+              $user->is_canabis = $request->input('is_canabis');
+            }
+            if(!empty($request->input('about_you'))){
+              $user->about_you = $request->input('about_you');
+            }
+            
             $user->save();
             return response()->json($user,200);
         } catch (\Exception $e){

@@ -22,6 +22,7 @@ class User extends Model implements JWTSubject, AuthenticatableContract, Authori
     protected $fillable = [
 
         'full_name','first_name','last_name','email','facebook_id','password','date_of_birth','visible_profile','orientation','relationship_status','looking_for','pets','meet_at','religious_views','children',
+        'is_smoke','is_drink','is_canabis','about_you',
     ];
 
    

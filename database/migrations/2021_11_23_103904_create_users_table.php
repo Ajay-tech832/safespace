@@ -32,8 +32,10 @@ class CreateUsersTable extends Migration
             $table->string('meet_at')->nullable();
             $table->string('religious_views')->nullable();
             $table->string('children')->nullable();
-
-            
+            $table->enum('is_smoke', ['no', 'socially','occasionally','regularly','prefer not to say'])->nullable();
+            $table->enum('is_drink', ['no', 'socially','occasionally','regularly','prefer not to say'])->nullable();
+            $table->enum('is_canabis', ['no', 'socially'])->nullable();
+            $table->string('about_you')->nullable();
             $table->timestamps();
         });
     }

@@ -87,10 +87,19 @@ class AuthController extends FacebookProvider
         return response()->json(['token'=>$token,'user'=>$user],200);
     }  
 
-
-
+    public function getUser(){
         try{
-            $user= User::find($request->post('id')); 
+            $user= Auth::user(); 
+            
+            return response()->json($user,200);
+        } catch (\Exception $e){
+            return response()->json(['message'=>'User Update Fail'],201);
+        }
+    }
+    public function userUpdate(Request $request){
+
+       try{
+            $user= Auth::user();  
             if(!empty($request->input('email'))){
                 $user->email = $request->input('email');
             }

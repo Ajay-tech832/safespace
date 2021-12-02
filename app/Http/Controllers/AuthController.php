@@ -61,14 +61,30 @@ class AuthController extends FacebookProvider
           ],
         ]);
         $response = json_decode($response->getBody(),true);
-        $saveUser = User::updateOrCreate([
-            'facebook_id' => $response['id'],
-        ],[
-            'full_name' => $response['name'],
-            'password' => Hash::make('password'),
-            
-             ]);
-      return response()->json(compact('saveUser'));
+
+        
+        $user = User::where('facebook_id' , $response['id'])->first();
+        if(empty($user)){
+            $profile = $client->request('GET', 'https://graph.facebook.com/'.$response['id'].'?fields=id,first_name,last_name,name,email&access_token='.$access_token, [
+                  'headers' => [
+                    'Accept' => 'application/json',
+                    'Authorization' => $access_token,
+                    'Content-Type' => 'application/json',
+                  ],
+                ]);
+                $profile = json_decode($profile->getBody(),true);
+                $data = array(
+                                "full_name"=>$profile['name'],
+                                "first_name"=>$profile['first_name'],
+                                "last_name"=>$profile['last_name'],
+                                "email"=>$profile['email'],
+                                "password"=>Hash::make('password'),
+                                "facebook_id"=>$profile['id'],
+                );
+                $user = User::create($data);
+        }
+       
+        return response()->json($user,200);
     }  
 
 
@@ -81,7 +97,7 @@ class AuthController extends FacebookProvider
                 $user->dob = $request->input('dob');
                 $user->save();
             }
-            return response()->json(['user' => $user,'message' =>'Updated'],200);
+            return response()->json($user,200);
         } catch (\Exception $e){
             return response()->json(['message'=>'User Update Fail'],201);
         }

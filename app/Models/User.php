@@ -20,7 +20,7 @@ class User extends Model implements JWTSubject, AuthenticatableContract, Authori
      * @var array
      */
     protected $fillable = [
-        'name', 'email','facebook_id','instagram_id','dob',
+        'full_name','first_name','last_name','email','facebook_id','password'
     ];
 
     /**
@@ -29,7 +29,7 @@ class User extends Model implements JWTSubject, AuthenticatableContract, Authori
      * @var array
      */
     protected $hidden = [
-        'password',
+        'password','updated_at','created_at','facebook_id'
     ];
 
 

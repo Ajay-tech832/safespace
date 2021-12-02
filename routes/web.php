@@ -22,7 +22,11 @@ $router->get('authFacebook', 'AuthController@loginUsingFacebook');
 $router->get('callbackFacebook', 'AuthController@callbackFromFacebook');
 
 $router->get('registerFacebookUser', 'AuthController@registerFacebookUser');
-$router->post('updateUser', 'AuthController@userUpdate');
+
+$router->group(['middleware' => 'auth:api'], function () use ($router) {
+    $router->post('updateUser', 'AuthController@userUpdate');
+    $router->get('user', 'AuthController@getUser');
+});
 
 
 

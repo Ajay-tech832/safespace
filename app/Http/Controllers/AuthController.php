@@ -88,28 +88,27 @@ class AuthController extends FacebookProvider
     }  
 
 
-    public function userUpdate(Request $request){
+    public function userUpdate(Request $request,$id){
 
         try{
-            if($request->post('id')>0){
-                $user= User::find($request->post('id')); 
+            $user= User::find($request->post('id')); 
+            if(!empty($request->input('email'))){
                 $user->email = $request->input('email');
-                $user->mobile = $request->input('mobile');
-                $user->date_of_birth = date("Y-m-d",strtotime( $request->input('date_of_birth')));
-                $user->visible_profile = $request->input('visible_profile');
-                $user->orientation = $request->input('orientation');
-                $user->relationship_status = $request->input('relationship_status');
-                $user->looking_for = $request->input('looking_for');
-                $user->pets = $request->input('pets');
-                $user->meet_at = $request->input('meet_at');
-                $user->religious_views = $request->input('religious_views');
-                $user->children = $request->input('children');
-                $user->save();
             }
+            $user->mobile = $request->input('mobile');
+            $user->date_of_birth = date("Y-m-d",strtotime( $request->input('date_of_birth')));
+            $user->visible_profile = $request->input('visible_profile');
+            $user->orientation = $request->input('orientation');
+            $user->relationship_status = $request->input('relationship_status');
+            $user->looking_for = $request->input('looking_for');
+            $user->pets = $request->input('pets');
+            $user->meet_at = $request->input('meet_at');
+            $user->religious_views = $request->input('religious_views');
+            $user->children = $request->input('children');
+            $user->save();
             return response()->json($user,200);
         } catch (\Exception $e){
-          return $e;
-            //return response()->json(['message'=>'User Update Fail'],201);
+            return response()->json(['message'=>'User Update Fail'],201);
         }
     }
 

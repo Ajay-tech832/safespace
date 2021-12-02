@@ -28,6 +28,8 @@ $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->get('user', 'AuthController@getUser');
 });
 
+$router->get('getHobbies','HobbieController@getHobbies');
+
 
 
 $router->get('getinstagramuser', 'AuthController@getInstagramUser');

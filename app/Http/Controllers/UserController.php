@@ -27,4 +27,22 @@ class UserController extends Controller
         
     }
 
+    public function userUpdate(Request $request)
+    {
+        $user= Auth::user();
+        UserHobbie::where('user_id', $user->id)->delete();
+        
+        $hobbies=$request->hobbies;
+        foreach($hobbies as $hobbie)
+        {
+            UserHobbie::create([
+                'user_id'=>$user->id,
+                'hobbie_id'=>$hobbie,
+            ]);
+        }
+        return response()->json('Successfully Updated');
+         }
+
+   
+
 }

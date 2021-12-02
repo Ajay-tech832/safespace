@@ -23,6 +23,7 @@ $router->get('callbackFacebook', 'AuthController@callbackFromFacebook');
 
 $router->get('registerFacebookUser', 'AuthController@registerFacebookUser');
 $router->post('updateUser', 'AuthController@userUpdate');
+$router->get('getUser', 'AuthController@getUser');
 
 
 

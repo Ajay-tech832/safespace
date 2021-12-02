@@ -16,22 +16,14 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
-$router->post('/register', 'AuthController@register');
-$router->post('/login', 'AuthController@login');
 
-//Login with facebook
 
-$router->get('auth', 'AuthController@loginUsingFacebook');
-$router->get('callback', 'AuthController@callbackFromFacebook');
+$router->get('authFacebook', 'AuthController@loginUsingFacebook');
+$router->get('callbackFacebook', 'AuthController@callbackFromFacebook');
 
-$router->get('getuser', 'AuthController@getFacebookUser');
-$router->post('update', 'AuthController@facebookUserupdate');
+$router->get('registerFacebookUser', 'AuthController@registerFacebookUser');
+$router->post('update', 'AuthController@userUpdate');
 
-//Login with  instagram
-
-// $router->get('authinstagram', 'AuthController@loginUsingInstagram');
-// $router->get('callback', 'AuthController@callbackFromInstance');
-// $router->get('getinstagramuser', 'AuthController@callbackFromInstance');
 
 
 $router->get('getinstagramuser', 'AuthController@getInstagramUser');

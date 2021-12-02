@@ -64,11 +64,10 @@ class AuthController extends FacebookProvider
         $saveUser = User::updateOrCreate([
             'facebook_id' => $response['id'],
         ],[
-            'name' => $response['name'],
-            'password' => Hash::make('123456')
+            'full_name' => $response['name'],
+            'password' => Hash::make('password'),
             
              ]);
-
       return response()->json(compact('saveUser'));
     }  
 

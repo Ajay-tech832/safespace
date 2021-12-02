@@ -49,9 +49,9 @@ class AuthController extends FacebookProvider
     }
 
 
-    public function registerFacebookUser(){
+    public function registerFacebookUser(Request $request){
 
-        $access_token = $_GET['token'];
+        $access_token = $request->token;
         $client = new \GuzzleHttp\Client();
         $response = $client->request('GET', 'https://graph.facebook.com/me?access_token='.$access_token, [
           'headers' => [

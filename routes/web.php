@@ -28,6 +28,7 @@ $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->get('user', 'AuthController@getUser');
     $router->get('hobbies','HobbieController@getHobbies');
     $router->post('user/hobbies','UserController@userHobbiesAdd');
+    $router->put('user/hobbies','UserController@userHobbiesUpdate');
 });
 
 

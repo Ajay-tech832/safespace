@@ -76,14 +76,24 @@ class AuthController extends FacebookProvider
 
         try{
             if($request->post('id')>0){
-                $user= User::find($request->post('id'));    
+                $user= User::find($request->post('id')); 
                 $user->email = $request->input('email');
-                $user->dob = $request->input('dob');
+                $user->mobile = $request->input('mobile');
+                $user->date_of_birth = date("Y-m-d",strtotime( $request->input('date_of_birth')));
+                $user->visible_profile = $request->input('visible_profile');
+                $user->orientation = $request->input('orientation');
+                $user->relationship_status = $request->input('relationship_status');
+                $user->looking_for = $request->input('looking_for');
+                $user->pets = $request->input('pets');
+                $user->meet_at = $request->input('meet_at');
+                $user->religious_views = $request->input('religious_views');
+                $user->children = $request->input('children');
                 $user->save();
             }
             return response()->json(['user' => $user,'message' =>'Updated'],200);
         } catch (\Exception $e){
-            return response()->json(['message'=>'User Update Fail'],201);
+          return $e;
+            //return response()->json(['message'=>'User Update Fail'],201);
         }
     }
 

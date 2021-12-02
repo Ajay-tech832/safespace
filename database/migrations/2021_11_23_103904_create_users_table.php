@@ -24,6 +24,14 @@ class CreateUsersTable extends Migration
             $table->date('date_of_birth')->nullable();
             $table->enum('gender', ['male', 'female'])->nullable();
             $table->string('facebook_id')->nullable();
+            $table->enum('visible_profile', ['yes', 'no'])->nullable();
+            $table->string('orientation')->nullable();
+            $table->string('relationship_status')->nullable();
+            $table->string('looking_for')->nullable();
+            $table->string('pets')->nullable();
+            $table->string('meet_at')->nullable();
+            $table->string('religious_views')->nullable();
+            $table->string('children')->nullable();
 
             
             $table->timestamps();

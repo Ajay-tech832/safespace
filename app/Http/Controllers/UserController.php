@@ -23,7 +23,7 @@ class UserController extends Controller
                  'hobbie_id'=>$hobbie,
             ]);
         }
-        return response()->json('Successfully Added',200);
+        return response()->json(["message"=>'Successfully Added'],200);
         
     }
 

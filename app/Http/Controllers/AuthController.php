@@ -143,7 +143,7 @@ class AuthController extends FacebookProvider
               $user->is_canabis = $request->input('is_canabis');
             }
             if(!empty($request->input('about'))){
-              $user->about_you = $request->input('about');
+              $user->about = $request->input('about');
             }
             
             $user->save();

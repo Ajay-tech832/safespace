@@ -26,7 +26,8 @@ $router->get('registerFacebookUser', 'AuthController@registerFacebookUser');
 $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->put('user', 'AuthController@userUpdate');
     $router->get('user', 'AuthController@getUser');
-
+    $router->get('hobbies','HobbieController@getHobbies');
+    $router->post('user/hobbies','UserController@userHobbiesAdd');
 });
 
 

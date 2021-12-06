@@ -190,6 +190,7 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'A' => 
         array (
             'App\\' => 4,
+            'Anik\\Form\\' => 10,
         ),
     );
 
@@ -591,6 +592,10 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
+        'Anik\\Form\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/anik/form-request/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -604,6 +609,8 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
     );
 
     public static $classMap = array (
+        'Anik\\Form\\FormRequest' => __DIR__ . '/..' . '/anik/form-request/src/FormRequest.php',
+        'Anik\\Form\\FormRequestServiceProvider' => __DIR__ . '/..' . '/anik/form-request/src/FormRequestServiceProvider.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Events\\Event' => __DIR__ . '/../..' . '/app/Events/Event.php',
         'App\\Events\\ExampleEvent' => __DIR__ . '/../..' . '/app/Events/ExampleEvent.php',
@@ -616,6 +623,7 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\ExampleMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/ExampleMiddleware.php',
+        'App\\Http\\Requests\\UserRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserRequest.php',
         'App\\Jobs\\ExampleJob' => __DIR__ . '/../..' . '/app/Jobs/ExampleJob.php',
         'App\\Jobs\\Job' => __DIR__ . '/../..' . '/app/Jobs/Job.php',
         'App\\Listeners\\ExampleListener' => __DIR__ . '/../..' . '/app/Listeners/ExampleListener.php',
@@ -751,6 +759,9 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
+        'Database\\Seeders\\OrientationsTableSeeder' => __DIR__ . '/../..' . '/database/seeders/OrientationsTableSeeder.php',
+        'Database\\Seeders\\RelationshipsTableSeeder' => __DIR__ . '/../..' . '/database/seeders/RelationshipsTableSeeder.php',
+        'Database\\Seeders\\UsersTableSeeder' => __DIR__ . '/../..' . '/database/seeders/UsersTableSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
         'DeepCopy\\Exception\\PropertyException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/PropertyException.php',

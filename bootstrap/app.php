@@ -98,6 +98,8 @@ $app->configure('services');
 $app->register(\Laravel\Socialite\SocialiteServiceProvider::class);
 $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
 $app->register(GeneaLabs\LaravelSocialiter\Providers\ServiceProvider::class);
+$app->register(\Anik\Form\FormRequestServiceProvider::class);
+
 //$app->register(SocialiteProviders\Instagram\InstagramExtendSocialite::class.'@handle');
 
 /*

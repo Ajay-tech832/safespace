@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\UserHobbie;
 use Illuminate\Http\Request;
+use App\Http\Requests\userHobbiesAddRequest;
 
 class UserController extends Controller
 {

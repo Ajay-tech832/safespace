@@ -8,6 +8,7 @@ use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Arr;
+use App\Http\Requests\facebookUserRequest;
 use Illuminate\Http\Request;
 use  App\Models\User;
 use Laravel\Lumen\Routing\Controller as BaseController;
@@ -16,22 +17,10 @@ use Facebook\Exceptions\FacebookResponseException;
 use Facebook\Exceptions\FacebookSDKException;
 
 
-class AuthController extends FacebookProvider
+class AuthController extends Controller
 {
     protected $stateless = true;
     
-    public function __construct(Request $request)
-    {
-        $conf = config('services.facebook');
-
-        parent::__construct(
-            $request,
-            $conf['client_id'],
-            $conf['client_secret'],
-            $conf['redirect'],
-            []
-        );
-    }
 
     //Login with Facebook
 
@@ -49,7 +38,7 @@ class AuthController extends FacebookProvider
     }
 
 
-    public function registerFacebookUser(Request $request){
+    public function registerFacebookUser(facebookUserRequest $request){
 
         $access_token = $request->token;
         $client = new \GuzzleHttp\Client();

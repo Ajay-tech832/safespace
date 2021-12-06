@@ -104,4 +104,5 @@ return array(
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
     'Brick\\Math\\' => array($vendorDir . '/brick/math/src'),
     'App\\' => array($baseDir . '/app'),
+    'Anik\\Form\\' => array($vendorDir . '/anik/form-request/src'),
 );

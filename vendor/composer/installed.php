@@ -1,15 +1,24 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => 'e495fe32d738f4d2ac6e4f50d770e0e5a5bdbebe',
         'name' => 'laravel/lumen',
         'dev' => true,
     ),
     'versions' => array(
+        'anik/form-request' => array(
+            'pretty_version' => 'v4.3',
+            'version' => '4.3.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../anik/form-request',
+            'aliases' => array(),
+            'reference' => 'ccc82532854ef3f29d22ccdcc0602d575285ff4e',
+            'dev_requirement' => false,
+        ),
         'brick/math' => array(
             'pretty_version' => '0.9.3',
             'version' => '0.9.3.0',
@@ -416,12 +425,12 @@
             ),
         ),
         'laravel/lumen' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => 'e495fe32d738f4d2ac6e4f50d770e0e5a5bdbebe',
             'dev_requirement' => false,
         ),
         'laravel/lumen-framework' => array(

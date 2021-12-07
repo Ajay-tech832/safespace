@@ -11,6 +11,8 @@ use Illuminate\Support\Arr;
 use App\Http\Requests\facebookUserRequest;
 use Illuminate\Http\Request;
 use  App\Models\User;
+use App\Transformers\UserTransformer;
+use App\Transformers\UserProfileTransformer;
 use Laravel\Lumen\Routing\Controller as BaseController;
 use Facebook\Facebook;
 use Facebook\Exceptions\FacebookResponseException;
@@ -73,14 +75,15 @@ class AuthController extends Controller
                 $user = User::create($data);
         }
         $token = Auth::login($user);
+        //return fractal()->item($data)->transformWith(new UserTransformer())->toArray();
         return response()->json(['token'=>$token,'user'=>$user],200);
     }  
 
     public function getUser(){
         try{
             $user= Auth::user(); 
-            
-            return response()->json($user,200);
+            return fractal()->item($user)->transformWith(new UserProfileTransformer())->toArray();
+            //return response()->json($user,200);
         } catch (\Exception $e){
             return response()->json(['message'=>'User Update Fail'],201);
         }

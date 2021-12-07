@@ -33,6 +33,7 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         'bee9632da3ca00a99623b9c35d0c4f8b' => __DIR__ . '/..' . '/laravel/lumen-framework/src/helpers.php',
+        'ab9b68c5b1def6f80e89be13eb0a4be3' => __DIR__ . '/..' . '/spatie/laravel-fractal/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -79,6 +80,8 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
             'Symfony\\Component\\EventDispatcher\\' => 34,
             'Symfony\\Component\\ErrorHandler\\' => 31,
             'Symfony\\Component\\Console\\' => 26,
+            'Spatie\\Fractalistic\\' => 20,
+            'Spatie\\Fractal\\' => 15,
             'SocialiteProviders\\Manager\\' => 27,
             'SocialiteProviders\\Instagram\\' => 29,
         ),
@@ -115,6 +118,7 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'L' => 
         array (
             'League\\OAuth1\\Client\\' => 21,
+            'League\\Fractal\\' => 15,
             'Lcobucci\\JWT\\' => 13,
             'Laravel\\Socialite\\' => 18,
             'Laravel\\SerializableClosure\\' => 28,
@@ -313,6 +317,14 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
+        'Spatie\\Fractalistic\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/fractalistic/src',
+        ),
+        'Spatie\\Fractal\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-fractal/src',
+        ),
         'SocialiteProviders\\Manager\\' => 
         array (
             0 => __DIR__ . '/..' . '/socialiteproviders/manager/src',
@@ -385,6 +397,10 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'League\\OAuth1\\Client\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/oauth1-client/src',
+        ),
+        'League\\Fractal\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/fractal/src',
         ),
         'Lcobucci\\JWT\\' => 
         array (
@@ -623,20 +639,30 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\ExampleMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/ExampleMiddleware.php',
-        'App\\Http\\Requests\\UserRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserRequest.php',
+        'App\\Http\\Requests\\facebookUserRequest' => __DIR__ . '/../..' . '/app/Http/Requests/facebookUserRequest.php',
+        'App\\Http\\Requests\\userHobbiesAddRequest' => __DIR__ . '/../..' . '/app/Http/Requests/userHobbiesAddRequest.php',
         'App\\Jobs\\ExampleJob' => __DIR__ . '/../..' . '/app/Jobs/ExampleJob.php',
         'App\\Jobs\\Job' => __DIR__ . '/../..' . '/app/Jobs/Job.php',
         'App\\Listeners\\ExampleListener' => __DIR__ . '/../..' . '/app/Listeners/ExampleListener.php',
         'App\\Models\\About' => __DIR__ . '/../..' . '/app/Models/About.php',
+        'App\\Models\\Chat' => __DIR__ . '/../..' . '/app/Models/Chat.php',
         'App\\Models\\Children' => __DIR__ . '/../..' . '/app/Models/Children.php',
+        'App\\Models\\Connection' => __DIR__ . '/../..' . '/app/Models/Connection.php',
         'App\\Models\\Hobbie' => __DIR__ . '/../..' . '/app/Models/Hobbie.php',
+        'App\\Models\\Image' => __DIR__ . '/../..' . '/app/Models/Image.php',
         'App\\Models\\Looking' => __DIR__ . '/../..' . '/app/Models/Looking.php',
         'App\\Models\\Meet' => __DIR__ . '/../..' . '/app/Models/Meet.php',
+        'App\\Models\\Member' => __DIR__ . '/../..' . '/app/Models/Member.php',
+        'App\\Models\\Message' => __DIR__ . '/../..' . '/app/Models/Message.php',
+        'App\\Models\\Notification' => __DIR__ . '/../..' . '/app/Models/Notification.php',
         'App\\Models\\Orientation' => __DIR__ . '/../..' . '/app/Models/Orientation.php',
+        'App\\Models\\Plan' => __DIR__ . '/../..' . '/app/Models/Plan.php',
+        'App\\Models\\Recipient' => __DIR__ . '/../..' . '/app/Models/Recipient.php',
         'App\\Models\\Relationship' => __DIR__ . '/../..' . '/app/Models/Relationship.php',
         'App\\Models\\Religious' => __DIR__ . '/../..' . '/app/Models/Religious.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\UserHobbie' => __DIR__ . '/../..' . '/app/Models/UserHobbie.php',
+        'App\\Models\\userPlan' => __DIR__ . '/../..' . '/app/Models/userPlan.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
@@ -2542,6 +2568,31 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'Lcobucci\\JWT\\Signer\\Rsa\\Sha512' => __DIR__ . '/..' . '/lcobucci/jwt/src/Signer/Rsa/Sha512.php',
         'Lcobucci\\JWT\\Token' => __DIR__ . '/..' . '/lcobucci/jwt/src/Token.php',
         'Lcobucci\\JWT\\ValidationData' => __DIR__ . '/..' . '/lcobucci/jwt/src/ValidationData.php',
+        'League\\Fractal\\Manager' => __DIR__ . '/..' . '/league/fractal/src/Manager.php',
+        'League\\Fractal\\Pagination\\Cursor' => __DIR__ . '/..' . '/league/fractal/src/Pagination/Cursor.php',
+        'League\\Fractal\\Pagination\\CursorInterface' => __DIR__ . '/..' . '/league/fractal/src/Pagination/CursorInterface.php',
+        'League\\Fractal\\Pagination\\DoctrinePaginatorAdapter' => __DIR__ . '/..' . '/league/fractal/src/Pagination/DoctrinePaginatorAdapter.php',
+        'League\\Fractal\\Pagination\\IlluminatePaginatorAdapter' => __DIR__ . '/..' . '/league/fractal/src/Pagination/IlluminatePaginatorAdapter.php',
+        'League\\Fractal\\Pagination\\PagerfantaPaginatorAdapter' => __DIR__ . '/..' . '/league/fractal/src/Pagination/PagerfantaPaginatorAdapter.php',
+        'League\\Fractal\\Pagination\\PaginatorInterface' => __DIR__ . '/..' . '/league/fractal/src/Pagination/PaginatorInterface.php',
+        'League\\Fractal\\Pagination\\PhalconFrameworkPaginatorAdapter' => __DIR__ . '/..' . '/league/fractal/src/Pagination/PhalconFrameworkPaginatorAdapter.php',
+        'League\\Fractal\\Pagination\\ZendFrameworkPaginatorAdapter' => __DIR__ . '/..' . '/league/fractal/src/Pagination/ZendFrameworkPaginatorAdapter.php',
+        'League\\Fractal\\ParamBag' => __DIR__ . '/..' . '/league/fractal/src/ParamBag.php',
+        'League\\Fractal\\Resource\\Collection' => __DIR__ . '/..' . '/league/fractal/src/Resource/Collection.php',
+        'League\\Fractal\\Resource\\Item' => __DIR__ . '/..' . '/league/fractal/src/Resource/Item.php',
+        'League\\Fractal\\Resource\\NullResource' => __DIR__ . '/..' . '/league/fractal/src/Resource/NullResource.php',
+        'League\\Fractal\\Resource\\Primitive' => __DIR__ . '/..' . '/league/fractal/src/Resource/Primitive.php',
+        'League\\Fractal\\Resource\\ResourceAbstract' => __DIR__ . '/..' . '/league/fractal/src/Resource/ResourceAbstract.php',
+        'League\\Fractal\\Resource\\ResourceInterface' => __DIR__ . '/..' . '/league/fractal/src/Resource/ResourceInterface.php',
+        'League\\Fractal\\Scope' => __DIR__ . '/..' . '/league/fractal/src/Scope.php',
+        'League\\Fractal\\ScopeFactory' => __DIR__ . '/..' . '/league/fractal/src/ScopeFactory.php',
+        'League\\Fractal\\ScopeFactoryInterface' => __DIR__ . '/..' . '/league/fractal/src/ScopeFactoryInterface.php',
+        'League\\Fractal\\Serializer\\ArraySerializer' => __DIR__ . '/..' . '/league/fractal/src/Serializer/ArraySerializer.php',
+        'League\\Fractal\\Serializer\\DataArraySerializer' => __DIR__ . '/..' . '/league/fractal/src/Serializer/DataArraySerializer.php',
+        'League\\Fractal\\Serializer\\JsonApiSerializer' => __DIR__ . '/..' . '/league/fractal/src/Serializer/JsonApiSerializer.php',
+        'League\\Fractal\\Serializer\\Serializer' => __DIR__ . '/..' . '/league/fractal/src/Serializer/Serializer.php',
+        'League\\Fractal\\Serializer\\SerializerAbstract' => __DIR__ . '/..' . '/league/fractal/src/Serializer/SerializerAbstract.php',
+        'League\\Fractal\\TransformerAbstract' => __DIR__ . '/..' . '/league/fractal/src/TransformerAbstract.php',
         'League\\OAuth1\\Client\\Credentials\\ClientCredentials' => __DIR__ . '/..' . '/league/oauth1-client/src/Credentials/ClientCredentials.php',
         'League\\OAuth1\\Client\\Credentials\\ClientCredentialsInterface' => __DIR__ . '/..' . '/league/oauth1-client/src/Credentials/ClientCredentialsInterface.php',
         'League\\OAuth1\\Client\\Credentials\\Credentials' => __DIR__ . '/..' . '/league/oauth1-client/src/Credentials/Credentials.php',
@@ -4096,6 +4147,15 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'SocialiteProviders\\Manager\\OAuth2\\User' => __DIR__ . '/..' . '/socialiteproviders/manager/src/OAuth2/User.php',
         'SocialiteProviders\\Manager\\ServiceProvider' => __DIR__ . '/..' . '/socialiteproviders/manager/src/ServiceProvider.php',
         'SocialiteProviders\\Manager\\SocialiteWasCalled' => __DIR__ . '/..' . '/socialiteproviders/manager/src/SocialiteWasCalled.php',
+        'Spatie\\Fractal\\Console\\Commands\\TransformerMakeCommand' => __DIR__ . '/..' . '/spatie/laravel-fractal/src/Console/Commands/TransformerMakeCommand.php',
+        'Spatie\\Fractal\\Facades\\Fractal' => __DIR__ . '/..' . '/spatie/laravel-fractal/src/Facades/Fractal.php',
+        'Spatie\\Fractal\\Fractal' => __DIR__ . '/..' . '/spatie/laravel-fractal/src/Fractal.php',
+        'Spatie\\Fractal\\FractalFacade' => __DIR__ . '/..' . '/spatie/laravel-fractal/src/FractalFacade.php',
+        'Spatie\\Fractal\\FractalServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-fractal/src/FractalServiceProvider.php',
+        'Spatie\\Fractalistic\\ArraySerializer' => __DIR__ . '/..' . '/spatie/fractalistic/src/ArraySerializer.php',
+        'Spatie\\Fractalistic\\Exceptions\\InvalidTransformation' => __DIR__ . '/..' . '/spatie/fractalistic/src/Exceptions/InvalidTransformation.php',
+        'Spatie\\Fractalistic\\Exceptions\\NoTransformerSpecified' => __DIR__ . '/..' . '/spatie/fractalistic/src/Exceptions/NoTransformerSpecified.php',
+        'Spatie\\Fractalistic\\Fractal' => __DIR__ . '/..' . '/spatie/fractalistic/src/Fractal.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\Attribute\\AsCommand' => __DIR__ . '/..' . '/symfony/console/Attribute/AsCommand.php',

@@ -29,6 +29,12 @@ $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->get('hobbies','HobbieController@getHobbies');
     $router->post('user/hobbies','UserController@userHobbiesAdd');
     $router->put('user/hobbies','UserController@userHobbiesUpdate');
+    $router->post('user/plans','UserController@userPlanAdd');
+    $router->put('user/plans','UserController@userPlanUpdate');
+    $router->get('plans','PlanController@getPlan');
+    $router->get('chats','ChatController@getChats');
+    $router->get('notifications','NotificationController@getNotifications');
+    $router->get('images','ImageController@getImages');
 });
 
 

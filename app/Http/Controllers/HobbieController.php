@@ -16,10 +16,8 @@ class HobbieController extends Controller
     public function getHobbies()
     {
         $hobbies = Hobbie::all();
-        foreach ($hobbies as $hobbie) {
-        }
-        return fractal()->item($hobbie)->transformWith(new HobbiesTransformer())->toArray();
-        //return response()->json($hobbies,200);
+       
+        return fractal()->collection($hobbies)->transformWith(new HobbiesTransformer())->toArray();
        
     }
 

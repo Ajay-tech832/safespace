@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Transformers;
-
+use App\Models\Hobbie;
 use League\Fractal\TransformerAbstract;
 
 class HobbiesTransformer extends TransformerAbstract
@@ -10,11 +10,11 @@ class HobbiesTransformer extends TransformerAbstract
 
     protected $availableIncludes = [];
 
-    public function transform($hobbie): array
+    public function transform(Hobbie $data): array
     {
         return [
-             "name" => $hobbie->name,
-             "icon" => $hobbie->icon,
+             "name" => $data->name,
+             "icon" => $data->icon,
         ];
     }
 }

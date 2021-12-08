@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Hobbie;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class HobbiesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,8 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call('UsersTableSeeder');
-         $this->call('PlanTableSeeder');
-         $this->call('HobbiesTableSeeder');
+        Hobbie::create([
+            'name' => 'Reading',
+            'icon' => 'path of icon',
+        ]);
     }
 }

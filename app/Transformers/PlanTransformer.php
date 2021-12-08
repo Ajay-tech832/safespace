@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Transformers;
-
+use App\Models\Plan;
 use League\Fractal\TransformerAbstract;
 
 class PlanTransformer extends TransformerAbstract
@@ -10,14 +10,14 @@ class PlanTransformer extends TransformerAbstract
 
     protected $availableIncludes = [];
 
-    public function transform($plan): array
+    public function transform(Plan $data): array
     {
         return [
-             "name" => $plan->name,
-             "duration_amount" => $plan->duration_amount, 
-             "duration_type" => $plan->duration_type,
-             "price" => $plan->price,
-             "description" => $plan->description,
+             "name" => $data->name,
+             "duration_amount" => $data->duration_amount, 
+             "duration_type" => $data->duration_type,
+             "price" => $data->price,
+             "description" => $data->description,
         ];
     }
 }

@@ -10,10 +10,8 @@ class PlanController extends Controller
    
     public function getPlan(){
         $plans = Plan::all();
-        foreach($plans as $plan){
-
-        }
-        return fractal()->item($plan)->transformWith(new PlanTransformer())->toArray();
+        
+        return fractal()->collection($plans)->transformWith(new PlanTransformer)->toArray();
 
     }
 

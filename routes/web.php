@@ -35,6 +35,9 @@ $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->get('chats','ChatController@getChats');
     $router->get('notifications','NotificationController@getNotifications');
     $router->get('images','ImageController@getImages');
+    $router->post('connections','ConnectionController@getConnections');
+    $router->post('messages','MessageController@getMessages');
+    $router->post('members','MemberController@getMembers');
 });
 
 

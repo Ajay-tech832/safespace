@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Notification;
 use Illuminate\Database\Seeder;
 
 class NotificationTableSeeder extends Seeder
@@ -13,6 +14,11 @@ class NotificationTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Notification::create([
+                               'text' =>'notification text',
+                               'type' =>'text type',
+                               'type_id' =>'1',
+                               'user_id' =>'1',
+        ]);
     }
 }

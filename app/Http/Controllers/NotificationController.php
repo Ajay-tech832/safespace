@@ -9,10 +9,10 @@ class NotificationController extends Controller
 {
     public function getNotifications(){
         $notifications = Notification::all();
-        foreach($notifications as $notification){
+        // foreach($notifications as $notification){
 
-        }
-        return fractal()->item($notification)->transformWith(new NotificationTransformer())->toArray();
+        // }
+        return fractal()->collection($notifications)->transformWith(new NotificationTransformer())->toArray();
 
     }
 }

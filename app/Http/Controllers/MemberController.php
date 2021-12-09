@@ -10,9 +10,9 @@ class MemberController extends Controller
     public function getMembers(Request $request)
     {
         $members = Member::where('user_id',$request->id)->get();
-        foreach ($members as $member) {
+        // foreach ($members as $member) {
 
-        }
-        return fractal()->item($member)->transformWith(new MemberTransformer())->toArray();
+        // }
+        return fractal()->collection($members)->transformWith(new MemberTransformer())->toArray();
     }
 }

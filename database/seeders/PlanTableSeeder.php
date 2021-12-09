@@ -20,11 +20,7 @@ class PlanTableSeeder extends Seeder
             'duration_type' => 'month',
             'price' => '10000',
             'description' =>'Description',
-            'is_active' =>'1',
-            'is_delete' =>'0',
-            'created_by' =>'1',
-            'updated_by' => '1',
-            'deleted_by' => '1',
-        ]);
+            ]);
+            
     }
 }

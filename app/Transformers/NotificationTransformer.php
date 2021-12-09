@@ -2,6 +2,7 @@
 
 namespace App\Transformers;
 
+use App\Models\Notification;
 use League\Fractal\TransformerAbstract;
 
 class NotificationTransformer extends TransformerAbstract
@@ -10,7 +11,7 @@ class NotificationTransformer extends TransformerAbstract
 
     protected $availableIncludes = [];
 
-    public function transform($notification): array
+    public function transform(Notification $notification): array
     {
         return [
              "text" => $notification['text'],

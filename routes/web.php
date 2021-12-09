@@ -38,6 +38,8 @@ $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->post('connections','ConnectionController@getConnections');
     $router->post('messages','MessageController@getMessages');
     $router->post('members','MemberController@getMembers');
+    $router->post('profile-image','ImageController@storeProfileImages');
+    $router->post('profile-imageUpdate','ImageController@updateProfileImages');
 });
 
 

@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Message;
+use App\Models\Chat;
 use Illuminate\Database\Seeder;
 
-class MessageTableSeeder extends Seeder
+class ChatTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,10 +14,10 @@ class MessageTableSeeder extends Seeder
      */
     public function run()
     {
-        Message::create([
+        Chat::create([
             'user_id' => '1',
-            'chat_id' => '1',
-            'message' => 'messages message',
-       ]);
+            'recipient_id' => '1',
+            'chat_topic' =>'chat topic description',
+        ]);
     }
 }

@@ -13,7 +13,7 @@ class AnswerRequest extends FormRequest
      */
     protected function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class AnswerRequest extends FormRequest
     protected function rules(): array
     {
         return [
-            //
+           'answer' => 'required',
         ];
     }
 }

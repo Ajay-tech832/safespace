@@ -43,6 +43,7 @@ $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->get('questions','QuestionController@getQuestions');
     $router->post('add-questions','QuestionController@addQuestions');
     $router->post('answers','AnswerController@getAnswers');
+    $router->post('add-answers','AnswerController@addAnswers');
 });
 
 

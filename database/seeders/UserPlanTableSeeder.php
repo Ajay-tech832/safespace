@@ -15,8 +15,6 @@ class UserPlanTableSeeder extends Seeder
     public function run()
     {
         UserPlan::create([
-                          'user_id' =>'1',
-                          'plan_id' =>'1',
                           'transaction_id'=>'43online3245',
                           'payment_mode' =>'online',
         ]);

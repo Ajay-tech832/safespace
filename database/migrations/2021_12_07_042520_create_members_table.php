@@ -15,7 +15,7 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->enum('is_visible_profile', ['yes', 'no'])->nullable();
             $table->enum('orientation', ['pansexual', 'transgender','lesbian'])->nullable();

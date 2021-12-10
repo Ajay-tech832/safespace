@@ -17,12 +17,15 @@ class DatabaseSeeder extends Seeder
 
             PlanTableSeeder::class,
             HobbiesTableSeeder::class,
+            RecipientTableSeeder::class,
             ChatTableSeeder::class,
             ConnectionTableSeeder::class,
             MemberTableSeeder::class,
             MessageTableSeeder::class,
             NotificationTableSeeder::class,
             UserPlanTableSeeder::class,
+            QuestionTableSeeder::class,
+            AnswerTableSeeder::class,
             
         ]);
 

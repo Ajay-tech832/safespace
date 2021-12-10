@@ -22,15 +22,15 @@ class ImageController extends Controller
         $user= Auth::user();
         if ($request->hasfile('images')) {
             $images = $request->file('images');
-            // foreach($images as $image) {
-                $name = Auth::id() . "/" . date("Y") . "/" . date("m") . "/" . time() . '_' . $images->getClientOriginalName();
-                $path = $images->storeAs('uploads', $name, 'public');
+             foreach($images as $image) {
+                $name = Auth::id() . "/" . date("Y") . "/" . date("m") . "/" . time() . '_' . $image->getClientOriginalName();
+                $path = $image->storeAs('uploads', $name, 'public');
                 $user = new Image;
                 $user->path= $path;
                 $user->user_id = Auth::id();
                 $user->date_time = date("Y-m-d");
                 $user->save();
-               
+             } 
          } 
          return response()->json(['message'=>'Profile Upload Succssfully'],200);
     }
@@ -41,13 +41,15 @@ class ImageController extends Controller
         Image::where('user_id', $user->id)->delete();
         if ($request->hasfile('images')) {
             $images = $request->file('images');
-            $name = Auth::id() . "/" . date("Y") . "/" . date("m") . "/" . time() . '_' . $images->getClientOriginalName();
-            $path = $images->storeAs('uploads', $name, 'public');
-                Image::create([
-                    'path' => '/storage/'.$path,
-                    'user_id'=>$user->id,
-                  ]);
-              
+            foreach($images as $image) {
+                $name = Auth::id() . "/" . date("Y") . "/" . date("m") . "/" . time() . '_' . $image->getClientOriginalName();
+                $path = $image->storeAs('uploads', $name, 'public');
+                $user = new Image;
+                $user->path= $path;
+                $user->user_id = Auth::id();
+                $user->date_time = date("Y-m-d");
+                $user->save();
+             } 
          } 
          return response()->json(['message'=>'Profile Updated Succssfully'],200);
     }

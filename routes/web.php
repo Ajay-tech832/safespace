@@ -40,6 +40,9 @@ $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->post('members','MemberController@getMembers');
     $router->post('profile-image','ImageController@storeProfileImages');
     $router->post('profile-imageUpdate','ImageController@updateProfileImages');
+    $router->get('questions','QuestionController@getQuestions');
+    $router->post('add-questions','QuestionController@addQuestions');
+    $router->post('answers','AnswerController@getAnswers');
 });
 
 

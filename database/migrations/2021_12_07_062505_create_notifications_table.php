@@ -18,7 +18,7 @@ class CreateNotificationsTable extends Migration
             $table->text('text')->nullable();
             $table->enum('type', ['text', 'audio','files'])->nullable();
             $table->bigInteger('type_id');
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->boolean('is_read')->nullable()->default(0);
             $table->datetime('date_time')->nullable();

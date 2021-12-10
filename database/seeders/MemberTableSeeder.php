@@ -15,7 +15,6 @@ class MemberTableSeeder extends Seeder
     public function run()
     {
         Member::create([
-                        'user_id' =>'1',
                         'is_visible_profile'=>'yes',
                         'orientation'=>'orientation',
                         'relationship_status'=>'married',

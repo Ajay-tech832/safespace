@@ -17,7 +17,7 @@ class CreateImagesTable extends Migration
             $table->id();
             $table->text('path')->nullable();
             $table->enum('type',['jpg','jpeg', 'png', 'gif'])->nullable();
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->datetime('date_time')->nullable();
             $table->boolean('is_active')->default(0); 

@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Connection;
+use App\Models\Answer;
 use Illuminate\Database\Seeder;
 
-class ConnectionTableSeeder extends Seeder
+class AnswerTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,9 +14,10 @@ class ConnectionTableSeeder extends Seeder
      */
     public function run()
     {
-       Connection::create([
+       Answer::create([
                         
-                        'status' =>'accept',
+                        'answer' =>'this is answer for this question',
+
        ]);
     }
 }

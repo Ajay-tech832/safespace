@@ -15,8 +15,6 @@ class MessageTableSeeder extends Seeder
     public function run()
     {
         Message::create([
-            'user_id' => '1',
-            'chat_id' => '1',
             'message' => 'messages message',
        ]);
     }

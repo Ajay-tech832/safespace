@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Chat;
+use App\Models\Recipient;
 use Illuminate\Database\Seeder;
 
-class ChatTableSeeder extends Seeder
+class RecipientTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,9 +14,8 @@ class ChatTableSeeder extends Seeder
      */
     public function run()
     {
-        Chat::create([
-            
-            'chat_topic' =>'chat topic description',
+        Recipient::create([
+                           'name'=>'name of recipient',
         ]);
     }
 }

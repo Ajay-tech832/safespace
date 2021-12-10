@@ -15,9 +15,9 @@ class CreateUserPlansTable extends Migration
     {
         Schema::create('user_plans', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->bigInteger('plan_id')->unsigned();
+            $table->bigInteger('plan_id')->unsigned()->nullable();
             $table->foreign('plan_id')->references('id')->on('plans');
             $table->timestamp('start_date');
             $table->timestamp('end_date');

@@ -26,6 +26,14 @@ class DatabaseSeeder extends Seeder
             UserPlanTableSeeder::class,
             QuestionTableSeeder::class,
             AnswerTableSeeder::class,
+            AboutTableSeeder::class,
+            ChildrenTableSeeder::class,
+            LookingTableSeeder::class,
+            MeetTableSeeder::class,
+            OrientationTableSeeder::class,
+            RelationshipTableSeeder::class,
+            ReligiousTableSeeder::class,
+            UserTableSeeder::class,
             
         ]);
 

@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
             RelationshipTableSeeder::class,
             ReligiousTableSeeder::class,
             UserTableSeeder::class,
+            ImageTableSeeder::class,
             
         ]);
 

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Exception;
 use App\Models\Hobbie;
 use App\Transformers\HobbiesTransformer;
 use Illuminate\Http\Request;
@@ -15,11 +15,15 @@ class HobbieController extends Controller
      */
     public function getHobbies()
     {
-        $hobbies = Hobbie::all();
+        try {
+            $hobbies = Hobbie::all();
        
-        return fractal()->collection($hobbies)->transformWith(new HobbiesTransformer())->toArray();
+            return fractal()->collection($hobbies)->transformWith(new HobbiesTransformer())->toArray();
+        }catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()],  500);
+        
        
+       }    
     }
 
-   
 }

@@ -35,6 +35,7 @@ class DatabaseSeeder extends Seeder
             ReligiousTableSeeder::class,
             UserTableSeeder::class,
             ImageTableSeeder::class,
+            CountryTableSeeder::class,
             
         ]);
 

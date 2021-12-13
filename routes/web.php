@@ -44,6 +44,12 @@ $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->post('add-questions','QuestionController@addQuestions');
     $router->post('answers','AnswerController@getAnswers');
     $router->post('add-answers','AnswerController@addAnswers');
+    $router->get('countries','CountryController@getCountries');
+    $router->get('feeds','FeedController@getFeeds');
+    $router->post('add-feeds','FeedController@addFeeds');
+    $router->post('update-feeds','FeedController@updateFeeds');
+    $router->get('feed-details','FeedController@getFeedDetails');
+    $router->post('add-feed-details','FeedController@addFeedDetails');
 });
 
 

@@ -34,15 +34,8 @@ return [
     |
     */
 
-    // 'guards' => [
-    //     'api' => ['driver' => 'api'],
-    // ],
-
     'guards' => [
-        'api' => [
-            'driver' => 'jwt',
-            'provider' => 'users'
-        ],
+        'api' => ['driver' => 'api'],
     ],
 
     /*
@@ -62,15 +55,8 @@ return [
     |
     */
 
-    // 'providers' => [
-    //     //
-    // ],
-
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model'  => \App\Models\User::class,
-        ],
+        //
     ],
 
     /*

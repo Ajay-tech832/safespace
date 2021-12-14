@@ -50,6 +50,9 @@ $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->post('update-feeds','FeedController@updateFeeds');
     $router->get('feed-details','FeedController@getFeedDetails');
     $router->post('add-feed-details','FeedController@addFeedDetails');
+    $router->get('feed-post','FeedController@getFeedPosts');
+    $router->post('add-feed-post','FeedController@addFeedPosts');
+    $router->post('update-feed-post','FeedController@updateFeedPosts');
 });
 
 

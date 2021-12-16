@@ -16,6 +16,7 @@
         "league/fractal": "^0.19.2",
         "socialiteproviders/instagram": "^4.1",
         "spatie/laravel-fractal": "^5.8",
+        "stevebauman/location": "^6.2",
         "tymon/jwt-auth": "dev-develop"
     },
     "require-dev": {

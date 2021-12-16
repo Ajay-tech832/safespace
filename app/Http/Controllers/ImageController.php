@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Exception;
+use App\Traits\ImageTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\imageRequest;
@@ -10,6 +11,8 @@ use App\Transformers\ImageTransformer;
 
 class ImageController extends Controller
 {
+    use ImageTrait;
+
     public function getImages(){
         try{
             $images = Image::all();
@@ -27,11 +30,9 @@ class ImageController extends Controller
     {
         try{
             $user= Auth::user();
-            if ($request->hasfile('images')) {
-                $images = $request->file('images');
-                 foreach($images as $image) {
-                    $name = Auth::id() . "/" . date("Y") . "/" . date("m") . "/" . time() . '_' . $image->getClientOriginalName();
-                    $path = $image->storeAs('uploads', $name, 'public');
+            if($request->hasFile('images')) {
+                foreach($request->file('images') as $image){
+                    $path = $this->multipleImageUpload($image);
                     $user = new Image;
                     $user->path= $path;
                     $user->user_id = Auth::id();
@@ -51,11 +52,9 @@ class ImageController extends Controller
         try {
             $user= Auth::user();
             Image::where('user_id', $user->id)->delete();
-            if ($request->hasfile('images')) {
-                $images = $request->file('images');
-                foreach($images as $image) {
-                    $name = Auth::id() . "/" . date("Y") . "/" . date("m") . "/" . time() . '_' . $image->getClientOriginalName();
-                    $path = $image->storeAs('uploads', $name, 'public');
+            if($request->hasFile('images')) {
+                foreach($request->file('images') as $image){
+                    $path = $this->multipleImageUpload($image);
                     $user = new Image;
                     $user->path= $path;
                     $user->user_id = Auth::id();

@@ -25,7 +25,7 @@ class FeedRequest extends FormRequest
     {
         return [
             "heading"=>'required',
-            "images"=> 'required',
+            "image"=> 'required',
         ];
     }
 }

@@ -79,6 +79,7 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
             'Symfony\\Component\\EventDispatcher\\' => 34,
             'Symfony\\Component\\ErrorHandler\\' => 31,
             'Symfony\\Component\\Console\\' => 26,
+            'Stevebauman\\Location\\' => 21,
             'Spatie\\Fractalistic\\' => 20,
             'Spatie\\Fractal\\' => 15,
             'SocialiteProviders\\Manager\\' => 27,
@@ -113,6 +114,9 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'M' => 
         array (
             'Monolog\\' => 8,
+            'MaxMind\\WebService\\' => 19,
+            'MaxMind\\Exception\\' => 18,
+            'MaxMind\\Db\\' => 11,
         ),
         'L' => 
         array (
@@ -158,6 +162,7 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
             'GrahamCampbell\\ResultType\\' => 26,
+            'GeoIp2\\' => 7,
             'GeneaLabs\\LaravelSocialiter\\' => 28,
             'GeneaLabs\\LaravelSignInWithApple\\' => 33,
             'GeneaLabs\\LaravelOverridableModel\\' => 34,
@@ -185,6 +190,7 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'C' => 
         array (
             'Cron\\' => 5,
+            'Composer\\CaBundle\\' => 18,
             'ClassPreloader\\' => 15,
             'Carbon\\' => 7,
         ),
@@ -314,6 +320,10 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
+        'Stevebauman\\Location\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stevebauman/location/src',
+        ),
         'Spatie\\Fractalistic\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/fractalistic/src',
@@ -390,6 +400,18 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'MaxMind\\WebService\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/maxmind/web-service-common/src/WebService',
+        ),
+        'MaxMind\\Exception\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/maxmind/web-service-common/src/Exception',
+        ),
+        'MaxMind\\Db\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/maxmind-db/reader/src/MaxMind/Db',
         ),
         'League\\OAuth1\\Client\\' => 
         array (
@@ -537,6 +559,10 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         array (
             0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
         ),
+        'GeoIp2\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/geoip2/geoip2/src',
+        ),
         'GeneaLabs\\LaravelSocialiter\\' => 
         array (
             0 => __DIR__ . '/..' . '/genealabs/laravel-socialiter/src',
@@ -597,6 +623,10 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
         ),
+        'Composer\\CaBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/composer/ca-bundle/src',
+        ),
         'ClassPreloader\\' => 
         array (
             0 => __DIR__ . '/..' . '/classpreloader/classpreloader/src',
@@ -620,13 +650,6 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
     );
 
     public static $prefixesPsr0 = array (
-        'W' => 
-        array (
-            'Webpatser\\Countries' => 
-            array (
-                0 => __DIR__ . '/..' . '/webpatser/laravel-countries/src',
-            ),
-        ),
         'M' => 
         array (
             'Mockery' => 
@@ -665,6 +688,7 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'App\\Http\\Requests\\AnswerRequest' => __DIR__ . '/../..' . '/app/Http/Requests/AnswerRequest.php',
         'App\\Http\\Requests\\CountryRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CountryRequest.php',
         'App\\Http\\Requests\\FeedDetailRequest' => __DIR__ . '/../..' . '/app/Http/Requests/FeedDetailRequest.php',
+        'App\\Http\\Requests\\FeedPostRequest' => __DIR__ . '/../..' . '/app/Http/Requests/FeedPostRequest.php',
         'App\\Http\\Requests\\FeedRequest' => __DIR__ . '/../..' . '/app/Http/Requests/FeedRequest.php',
         'App\\Http\\Requests\\QuestionRequest' => __DIR__ . '/../..' . '/app/Http/Requests/QuestionRequest.php',
         'App\\Http\\Requests\\facebookUserRequest' => __DIR__ . '/../..' . '/app/Http/Requests/facebookUserRequest.php',
@@ -683,6 +707,7 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'App\\Models\\FeedDetail' => __DIR__ . '/../..' . '/app/Models/FeedDetail.php',
         'App\\Models\\FeedDetailImage' => __DIR__ . '/../..' . '/app/Models/FeedDetailImage.php',
         'App\\Models\\FeedPost' => __DIR__ . '/../..' . '/app/Models/FeedPost.php',
+        'App\\Models\\FeedPostImage' => __DIR__ . '/../..' . '/app/Models/FeedPostImage.php',
         'App\\Models\\Hobbie' => __DIR__ . '/../..' . '/app/Models/Hobbie.php',
         'App\\Models\\Image' => __DIR__ . '/../..' . '/app/Models/Image.php',
         'App\\Models\\Like' => __DIR__ . '/../..' . '/app/Models/Like.php',
@@ -703,11 +728,14 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
+        'App\\Traits\\ImageTrait' => __DIR__ . '/../..' . '/app/Traits/ImageTrait.php',
         'App\\Transformers\\AnswerTransformer' => __DIR__ . '/../..' . '/app/Transformers/AnswerTransformer.php',
         'App\\Transformers\\ChatTransformer' => __DIR__ . '/../..' . '/app/Transformers/ChatTransformer.php',
         'App\\Transformers\\ConnectionTransformer' => __DIR__ . '/../..' . '/app/Transformers/ConnectionTransformer.php',
         'App\\Transformers\\CountryTransformer' => __DIR__ . '/../..' . '/app/Transformers/CountryTransformer.php',
+        'App\\Transformers\\FeedDetailImageTransformer' => __DIR__ . '/../..' . '/app/Transformers/FeedDetailImageTransformer.php',
         'App\\Transformers\\FeedDetailTransformer' => __DIR__ . '/../..' . '/app/Transformers/FeedDetailTransformer.php',
+        'App\\Transformers\\FeedPostTransformer' => __DIR__ . '/../..' . '/app/Transformers/FeedPostTransformer.php',
         'App\\Transformers\\FeedTransformer' => __DIR__ . '/../..' . '/app/Transformers/FeedTransformer.php',
         'App\\Transformers\\HobbiesTransformer' => __DIR__ . '/../..' . '/app/Transformers/HobbiesTransformer.php',
         'App\\Transformers\\ImageTransformer' => __DIR__ . '/../..' . '/app/Transformers/ImageTransformer.php',
@@ -827,6 +855,7 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'ClassPreloader\\Parser\\FileVisitor' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Parser/FileVisitor.php',
         'ClassPreloader\\Parser\\NodeTraverser' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Parser/NodeTraverser.php',
         'ClassPreloader\\Parser\\StrictTypesVisitor' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Parser/StrictTypesVisitor.php',
+        'Composer\\CaBundle\\CaBundle' => __DIR__ . '/..' . '/composer/ca-bundle/src/CaBundle.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
@@ -1589,6 +1618,37 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'GeneaLabs\\LaravelSocialiter\\SocialCredentials' => __DIR__ . '/..' . '/genealabs/laravel-socialiter/src/SocialCredentials.php',
         'GeneaLabs\\LaravelSocialiter\\Socialiter' => __DIR__ . '/..' . '/genealabs/laravel-socialiter/src/Socialiter.php',
         'GeneaLabs\\LaravelSocialiter\\Traits\\SocialCredentials' => __DIR__ . '/..' . '/genealabs/laravel-socialiter/src/Traits/SocialCredentials.php',
+        'GeoIp2\\Database\\Reader' => __DIR__ . '/..' . '/geoip2/geoip2/src/Database/Reader.php',
+        'GeoIp2\\Exception\\AddressNotFoundException' => __DIR__ . '/..' . '/geoip2/geoip2/src/Exception/AddressNotFoundException.php',
+        'GeoIp2\\Exception\\AuthenticationException' => __DIR__ . '/..' . '/geoip2/geoip2/src/Exception/AuthenticationException.php',
+        'GeoIp2\\Exception\\GeoIp2Exception' => __DIR__ . '/..' . '/geoip2/geoip2/src/Exception/GeoIp2Exception.php',
+        'GeoIp2\\Exception\\HttpException' => __DIR__ . '/..' . '/geoip2/geoip2/src/Exception/HttpException.php',
+        'GeoIp2\\Exception\\InvalidRequestException' => __DIR__ . '/..' . '/geoip2/geoip2/src/Exception/InvalidRequestException.php',
+        'GeoIp2\\Exception\\OutOfQueriesException' => __DIR__ . '/..' . '/geoip2/geoip2/src/Exception/OutOfQueriesException.php',
+        'GeoIp2\\Model\\AbstractModel' => __DIR__ . '/..' . '/geoip2/geoip2/src/Model/AbstractModel.php',
+        'GeoIp2\\Model\\AnonymousIp' => __DIR__ . '/..' . '/geoip2/geoip2/src/Model/AnonymousIp.php',
+        'GeoIp2\\Model\\Asn' => __DIR__ . '/..' . '/geoip2/geoip2/src/Model/Asn.php',
+        'GeoIp2\\Model\\City' => __DIR__ . '/..' . '/geoip2/geoip2/src/Model/City.php',
+        'GeoIp2\\Model\\ConnectionType' => __DIR__ . '/..' . '/geoip2/geoip2/src/Model/ConnectionType.php',
+        'GeoIp2\\Model\\Country' => __DIR__ . '/..' . '/geoip2/geoip2/src/Model/Country.php',
+        'GeoIp2\\Model\\Domain' => __DIR__ . '/..' . '/geoip2/geoip2/src/Model/Domain.php',
+        'GeoIp2\\Model\\Enterprise' => __DIR__ . '/..' . '/geoip2/geoip2/src/Model/Enterprise.php',
+        'GeoIp2\\Model\\Insights' => __DIR__ . '/..' . '/geoip2/geoip2/src/Model/Insights.php',
+        'GeoIp2\\Model\\Isp' => __DIR__ . '/..' . '/geoip2/geoip2/src/Model/Isp.php',
+        'GeoIp2\\ProviderInterface' => __DIR__ . '/..' . '/geoip2/geoip2/src/ProviderInterface.php',
+        'GeoIp2\\Record\\AbstractPlaceRecord' => __DIR__ . '/..' . '/geoip2/geoip2/src/Record/AbstractPlaceRecord.php',
+        'GeoIp2\\Record\\AbstractRecord' => __DIR__ . '/..' . '/geoip2/geoip2/src/Record/AbstractRecord.php',
+        'GeoIp2\\Record\\City' => __DIR__ . '/..' . '/geoip2/geoip2/src/Record/City.php',
+        'GeoIp2\\Record\\Continent' => __DIR__ . '/..' . '/geoip2/geoip2/src/Record/Continent.php',
+        'GeoIp2\\Record\\Country' => __DIR__ . '/..' . '/geoip2/geoip2/src/Record/Country.php',
+        'GeoIp2\\Record\\Location' => __DIR__ . '/..' . '/geoip2/geoip2/src/Record/Location.php',
+        'GeoIp2\\Record\\MaxMind' => __DIR__ . '/..' . '/geoip2/geoip2/src/Record/MaxMind.php',
+        'GeoIp2\\Record\\Postal' => __DIR__ . '/..' . '/geoip2/geoip2/src/Record/Postal.php',
+        'GeoIp2\\Record\\RepresentedCountry' => __DIR__ . '/..' . '/geoip2/geoip2/src/Record/RepresentedCountry.php',
+        'GeoIp2\\Record\\Subdivision' => __DIR__ . '/..' . '/geoip2/geoip2/src/Record/Subdivision.php',
+        'GeoIp2\\Record\\Traits' => __DIR__ . '/..' . '/geoip2/geoip2/src/Record/Traits.php',
+        'GeoIp2\\Util' => __DIR__ . '/..' . '/geoip2/geoip2/src/Util.php',
+        'GeoIp2\\WebService\\Client' => __DIR__ . '/..' . '/geoip2/geoip2/src/WebService/Client.php',
         'GrahamCampbell\\ResultType\\Error' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Error.php',
         'GrahamCampbell\\ResultType\\Result' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Result.php',
         'GrahamCampbell\\ResultType\\Success' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Success.php',
@@ -2755,6 +2815,23 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'League\\OAuth1\\Client\\Signature\\RsaSha1Signature' => __DIR__ . '/..' . '/league/oauth1-client/src/Signature/RsaSha1Signature.php',
         'League\\OAuth1\\Client\\Signature\\Signature' => __DIR__ . '/..' . '/league/oauth1-client/src/Signature/Signature.php',
         'League\\OAuth1\\Client\\Signature\\SignatureInterface' => __DIR__ . '/..' . '/league/oauth1-client/src/Signature/SignatureInterface.php',
+        'MaxMind\\Db\\Reader' => __DIR__ . '/..' . '/maxmind-db/reader/src/MaxMind/Db/Reader.php',
+        'MaxMind\\Db\\Reader\\Decoder' => __DIR__ . '/..' . '/maxmind-db/reader/src/MaxMind/Db/Reader/Decoder.php',
+        'MaxMind\\Db\\Reader\\InvalidDatabaseException' => __DIR__ . '/..' . '/maxmind-db/reader/src/MaxMind/Db/Reader/InvalidDatabaseException.php',
+        'MaxMind\\Db\\Reader\\Metadata' => __DIR__ . '/..' . '/maxmind-db/reader/src/MaxMind/Db/Reader/Metadata.php',
+        'MaxMind\\Db\\Reader\\Util' => __DIR__ . '/..' . '/maxmind-db/reader/src/MaxMind/Db/Reader/Util.php',
+        'MaxMind\\Exception\\AuthenticationException' => __DIR__ . '/..' . '/maxmind/web-service-common/src/Exception/AuthenticationException.php',
+        'MaxMind\\Exception\\HttpException' => __DIR__ . '/..' . '/maxmind/web-service-common/src/Exception/HttpException.php',
+        'MaxMind\\Exception\\InsufficientFundsException' => __DIR__ . '/..' . '/maxmind/web-service-common/src/Exception/InsufficientFundsException.php',
+        'MaxMind\\Exception\\InvalidInputException' => __DIR__ . '/..' . '/maxmind/web-service-common/src/Exception/InvalidInputException.php',
+        'MaxMind\\Exception\\InvalidRequestException' => __DIR__ . '/..' . '/maxmind/web-service-common/src/Exception/InvalidRequestException.php',
+        'MaxMind\\Exception\\IpAddressNotFoundException' => __DIR__ . '/..' . '/maxmind/web-service-common/src/Exception/IpAddressNotFoundException.php',
+        'MaxMind\\Exception\\PermissionRequiredException' => __DIR__ . '/..' . '/maxmind/web-service-common/src/Exception/PermissionRequiredException.php',
+        'MaxMind\\Exception\\WebServiceException' => __DIR__ . '/..' . '/maxmind/web-service-common/src/Exception/WebServiceException.php',
+        'MaxMind\\WebService\\Client' => __DIR__ . '/..' . '/maxmind/web-service-common/src/WebService/Client.php',
+        'MaxMind\\WebService\\Http\\CurlRequest' => __DIR__ . '/..' . '/maxmind/web-service-common/src/WebService/Http/CurlRequest.php',
+        'MaxMind\\WebService\\Http\\Request' => __DIR__ . '/..' . '/maxmind/web-service-common/src/WebService/Http/Request.php',
+        'MaxMind\\WebService\\Http\\RequestFactory' => __DIR__ . '/..' . '/maxmind/web-service-common/src/WebService/Http/RequestFactory.php',
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegrationAssertPostConditions' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegrationAssertPostConditions.php',
@@ -4297,6 +4374,19 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'Spatie\\Fractalistic\\Exceptions\\InvalidTransformation' => __DIR__ . '/..' . '/spatie/fractalistic/src/Exceptions/InvalidTransformation.php',
         'Spatie\\Fractalistic\\Exceptions\\NoTransformerSpecified' => __DIR__ . '/..' . '/spatie/fractalistic/src/Exceptions/NoTransformerSpecified.php',
         'Spatie\\Fractalistic\\Fractal' => __DIR__ . '/..' . '/spatie/fractalistic/src/Fractal.php',
+        'Stevebauman\\Location\\Drivers\\Driver' => __DIR__ . '/..' . '/stevebauman/location/src/Drivers/Driver.php',
+        'Stevebauman\\Location\\Drivers\\GeoPlugin' => __DIR__ . '/..' . '/stevebauman/location/src/Drivers/GeoPlugin.php',
+        'Stevebauman\\Location\\Drivers\\IpApi' => __DIR__ . '/..' . '/stevebauman/location/src/Drivers/IpApi.php',
+        'Stevebauman\\Location\\Drivers\\IpApiPro' => __DIR__ . '/..' . '/stevebauman/location/src/Drivers/IpApiPro.php',
+        'Stevebauman\\Location\\Drivers\\IpData' => __DIR__ . '/..' . '/stevebauman/location/src/Drivers/IpData.php',
+        'Stevebauman\\Location\\Drivers\\IpInfo' => __DIR__ . '/..' . '/stevebauman/location/src/Drivers/IpInfo.php',
+        'Stevebauman\\Location\\Drivers\\MaxMind' => __DIR__ . '/..' . '/stevebauman/location/src/Drivers/MaxMind.php',
+        'Stevebauman\\Location\\Exceptions\\DriverDoesNotExistException' => __DIR__ . '/..' . '/stevebauman/location/src/Exceptions/DriverDoesNotExistException.php',
+        'Stevebauman\\Location\\Exceptions\\LocationException' => __DIR__ . '/..' . '/stevebauman/location/src/Exceptions/LocationException.php',
+        'Stevebauman\\Location\\Facades\\Location' => __DIR__ . '/..' . '/stevebauman/location/src/Facades/Location.php',
+        'Stevebauman\\Location\\Location' => __DIR__ . '/..' . '/stevebauman/location/src/Location.php',
+        'Stevebauman\\Location\\LocationServiceProvider' => __DIR__ . '/..' . '/stevebauman/location/src/LocationServiceProvider.php',
+        'Stevebauman\\Location\\Position' => __DIR__ . '/..' . '/stevebauman/location/src/Position.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\Attribute\\AsCommand' => __DIR__ . '/..' . '/symfony/console/Attribute/AsCommand.php',
@@ -5047,10 +5137,6 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'Webmozart\\Assert\\InvalidArgumentException' => __DIR__ . '/..' . '/webmozart/assert/src/InvalidArgumentException.php',
         'Webmozart\\Assert\\Mixin' => __DIR__ . '/..' . '/webmozart/assert/src/Mixin.php',
-        'Webpatser\\Countries\\Countries' => __DIR__ . '/..' . '/webpatser/laravel-countries/src/Webpatser/Countries/Countries.php',
-        'Webpatser\\Countries\\CountriesFacade' => __DIR__ . '/..' . '/webpatser/laravel-countries/src/Webpatser/Countries/CountriesFacade.php',
-        'Webpatser\\Countries\\CountriesServiceProvider' => __DIR__ . '/..' . '/webpatser/laravel-countries/src/Webpatser/Countries/CountriesServiceProvider.php',
-        'Webpatser\\Countries\\MigrationCommand' => __DIR__ . '/..' . '/webpatser/laravel-countries/src/commands/MigrationCommand.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',

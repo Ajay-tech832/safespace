@@ -24,7 +24,7 @@ class CreateFeedPostsTable extends Migration
             $table->string('about')->nullable();
             $table->string('description_heading')->nullable();
             $table->text('description')->nullable();
-            $table->text('path')->nullable();
+            $table->text('image_path')->nullable();
             $table->bigInteger('like')->unsigned()->nullable();
             $table->boolean('is_active')->default(0); 
             $table->boolean('is_delete')->default(0);

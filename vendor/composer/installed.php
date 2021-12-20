@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '61cd4113980e69d719451608ae33f9c6706008ee',
+        'reference' => 'cc75bb028f7023b1ad47d3a716b978f228220424',
         'name' => 'laravel/lumen',
         'dev' => true,
     ),
@@ -448,7 +448,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '61cd4113980e69d719451608ae33f9c6706008ee',
+            'reference' => 'cc75bb028f7023b1ad47d3a716b978f228220424',
             'dev_requirement' => false,
         ),
         'laravel/lumen-framework' => array(

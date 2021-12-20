@@ -29,9 +29,13 @@ $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->get('hobbies','HobbieController@getHobbies');
     $router->post('user/hobbies','UserController@userHobbiesAdd');
     $router->put('user/hobbies','UserController@userHobbiesUpdate');
+    $router->get('user/plans','UserController@getUserPlan');
     $router->post('user/plans','UserController@userPlanAdd');
-    $router->put('user/plans','UserController@userPlanUpdate');
+    $router->post('user/plans-update','UserController@userPlanUpdate');
     $router->get('plans','PlanController@getPlan');
+    $router->post('add-plan','PlanController@addPlans');
+    $router->post('update-plan','PlanController@updatePlans');
+    $router->post('delete-plan','PlanController@deletePlans');
     $router->get('chats','ChatController@getChats');
     $router->get('notifications','NotificationController@getNotifications');
     $router->get('images','ImageController@getImages');
@@ -53,6 +57,8 @@ $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->get('feed-post','FeedController@getFeedPosts');
     $router->post('add-feed-post','FeedController@addFeedPosts');
     $router->post('update-feed-post','FeedController@updateFeedPosts');
+    
+    $router->get('location','FeedController@deviceLocation');
 });
 
 

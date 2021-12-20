@@ -5,6 +5,7 @@ use Exception;
 use Illuminate\Support\Facades\Auth;
 use App\Models\UserHobbie;
 use App\Models\UserPlan;
+use App\Transformers\UserPlanTransformer;
 use Illuminate\Http\Request;
 use App\Http\Requests\userHobbiesAddRequest;
 
@@ -56,19 +57,31 @@ class UserController extends Controller
         }
     }
 
+    public function getUserPlan()
+    {
+        try{
+            $user_plan = UserPlan::all();
+            return fractal()->collection($user_plan)->transformWith(new UserPlanTransformer())->toArray();
+        }catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()],  500);
+        }
+       
+    }
+
 
     public function userPlanAdd(Request $request)
     {
         try{
             $user= Auth::user();
-            $plans=$request->plans;
-            foreach($plans as $plan)
-            {
-                UserPlan::create([
-                  'user_id'=>$user->id,
-                  'plan_id' =>$plan,
-                ]);
-            }
+            $user_plan = new UserPlan;
+            $user_plan->user_id = $user->id;
+            $user_plan->plan_id = $request->input('plan_id');
+            $user_plan->start_date = date("Y-m-d",strtotime( $request->input('start_date')));
+            $user_plan->end_date = date("Y-m-d",strtotime( $request->input('end_date')));
+            $user_plan->transaction_id = $request->input('transaction_id');
+            $user_plan->payment_mode = $request->input('payment_mode');
+            $user_plan->save();
+                
             return response()->json(["message"=>'Plan Successfully Added'],200);
         }catch (Exception $e) {
             return response()->json(['message' => $e->getMessage()],  500);
@@ -78,17 +91,17 @@ class UserController extends Controller
      public function userPlanUpdate(Request $request)
     {
         try{
-            $user= Auth::user();
-            UserPlan::where('user_id', $user->id)->delete();
+           $user= Auth::user();
+           UserPlan::where('user_id', $user->id)->delete();
+           $user_plan = new UserPlan;
+           $user_plan->user_id = $user->id;
+           $user_plan->plan_id = $request->input('plan_id');
+           $user_plan->start_date = date("Y-m-d",strtotime( $request->input('start_date')));
+           $user_plan->end_date = date("Y-m-d",strtotime( $request->input('end_date')));
+           $user_plan->transaction_id = $request->input('transaction_id');
+           $user_plan->payment_mode = $request->input('payment_mode');
+           $user_plan->save(); 
             
-            $plans=$request->plans;
-            foreach($plans as $plan)
-            {
-                UserPlan::create([
-                  'user_id'=>$user->id,
-                  'plan_id' =>$plan,
-                ]);
-            }
             return response()->json(["message"=>'Plan Successfully Updated'],200);
         }catch (Exception $e) {
             return response()->json(['message' => $e->getMessage()],  500);

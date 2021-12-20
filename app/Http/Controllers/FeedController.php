@@ -16,6 +16,7 @@ use App\Transformers\FeedTransformer;
 use App\Transformers\FeedDetailTransformer;
 use App\Transformers\FeedPostTransformer;
 use Illuminate\Http\Request;
+use Stevebauman\Location\Facades\Location;
 
 class FeedController extends Controller
 {
@@ -109,6 +110,7 @@ class FeedController extends Controller
             $feed_details->sub_heading = $request->input('sub_heading');
             $feed_details->about = $request->input('about');
             $feed_details->goal = $request->input('goal');
+            $feed_details->user_id = Auth::id();
             $feed_details->save();
             
             if ($request->hasFile('images')) {
@@ -151,6 +153,7 @@ class FeedController extends Controller
                 $feed_posts->description_heading = $request->input('description_heading');
                 $feed_posts->description = $request->input('description');
                 $feed_posts->like = $request->input('like');
+                $feed_posts->user_id = Auth::id();
                 $feed_posts->save();
             
                 if($request->hasFile('images')) {
@@ -181,6 +184,7 @@ class FeedController extends Controller
                 $feed_posts->description_heading = $request->input('description_heading');
                 $feed_posts->description = $request->input('description');
                 $feed_posts->like = $request->input('like');
+                $feed_posts->user_id = Auth::id();
                 $feed_posts->save();
             
                 if($request->hasFile('images')) {
@@ -194,5 +198,12 @@ class FeedController extends Controller
         }catch (Exception $e) {
             return response()->json(['message' => $e->getMessage()],  500);
         }
+    }
+
+
+    public function deviceLocation(Request $request)
+    {
+        $position = Location::get('122.179.247.144');
+        dd($position);
     }
 }

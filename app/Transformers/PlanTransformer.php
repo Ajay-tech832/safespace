@@ -10,7 +10,7 @@ class PlanTransformer extends TransformerAbstract
 
     protected $availableIncludes = [];
 
-    public function transform(Plan $data): array
+    public function transform($data): array
     {
         return [
              "name" => $data->name,

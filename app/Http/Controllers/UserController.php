@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\UserHobbie;
 use App\Models\UserPlan;
 use App\Transformers\UserPlanTransformer;
+use App\Transformers\HobbiesTransformer;
+use App\Transformers\UserHobbieTransformer;
 use Illuminate\Http\Request;
 use App\Http\Requests\userHobbiesAddRequest;
 
@@ -16,6 +18,13 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function getUserHobbies()
+    {
+       $user_hobbies = UserHobbie::with('hobbie')->where('user_id', Auth::id())->get();
+       return fractal()->collection($user_hobbies)->transformWith(new UserHobbieTransformer())->toArray();
+    }
+     
     public function userHobbiesAdd(Request $request)
     {
         try {
@@ -60,7 +69,7 @@ class UserController extends Controller
     public function getUserPlan()
     {
         try{
-            $user_plan = UserPlan::all();
+            $user_plan = UserPlan::with('plan')->get();
             return fractal()->collection($user_plan)->transformWith(new UserPlanTransformer())->toArray();
         }catch (Exception $e) {
             return response()->json(['message' => $e->getMessage()],  500);

@@ -15,8 +15,10 @@ class CreateUserHobbiesTable extends Migration
     {
         Schema::create('user_hobbies', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->nullable();
-            $table->bigInteger('hobbie_id')->nullable();
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('hobbie_id')->unsigned()->nullable();
+            $table->foreign('hobbie_id')->references('id')->on('hobbies');
             $table->timestamps();
         });
     }

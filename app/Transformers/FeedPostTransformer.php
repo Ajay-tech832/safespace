@@ -14,7 +14,6 @@ class FeedPostTransformer extends TransformerAbstract
 
     public function transform(FeedPost $data): array
     {
-        //dd($data->path);
         return [
              "heading" => $data->heading,
              "sub_heading"=>$data->sub_heading,

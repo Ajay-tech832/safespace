@@ -12,11 +12,14 @@ use App\Http\Requests\FeedDetailRequest;
 use App\Http\Requests\FeedPostRequest;
 use App\Models\FeedDetail;
 use App\Models\FeedPost;
+use App\Models\Like;
 use App\Transformers\FeedTransformer;
 use App\Transformers\FeedDetailTransformer;
 use App\Transformers\FeedPostTransformer;
+use App\Transformers\LikeTransformer;
 use Illuminate\Http\Request;
 use Stevebauman\Location\Facades\Location;
+use Illuminate\Support\Facades\DB;
 
 class FeedController extends Controller
 {
@@ -133,8 +136,14 @@ class FeedController extends Controller
 
     public function getFeedPosts()
     {
+        // $posts = FeedPost::with('feedPostlikes.user')->get();
+        // foreach ($posts as $post){
+        //     $post = count($post->feedPostlikes);
+        //     dd($post);
+        // }
+        
         try{
-            $feed_posts = FeedPost::with('feedPostImages')->get();
+            $feed_posts = FeedPost::with('feedPostImages','feedPostlikes')->get();
             return fractal()->collection($feed_posts)->transformWith(new FeedPostTransformer())->toArray();
         }catch (Exception $e) {
             return response()->json(['message' => $e->getMessage()],  500);
@@ -201,9 +210,24 @@ class FeedController extends Controller
     }
 
 
-    public function deviceLocation(Request $request)
+    public function getPostLikes()
     {
-        $position = Location::get('122.179.247.144');
-        dd($position);
+        
+        $feed_post_likes = Like::groupBy('feed_post_id')->select('feed_post_id', DB::raw('count(*) as likes'))->get();
+
+        return fractal()->collection($feed_post_likes)->transformWith(new LikeTransformer())->toArray();
+    }
+
+    public function addPostLikes(Request $request)
+    {
+        $user = Auth::user();
+        $likes = $request->likes;
+        foreach($likes as $like)
+        {
+            Like::create([
+                'user_id' => $user->id,
+                'feed_post_id'=> $like,
+            ]);
+        }
     }
 }

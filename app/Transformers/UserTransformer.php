@@ -14,6 +14,13 @@ class UserTransformer extends TransformerAbstract
     {
         
         return [
+            'full_name'=>$data->full_name,
+            'first_name'=>$data->first_name,
+            'last_name'=>$data->last_name,
+            'email'=>$data->email,
+            'mobile'=>$data->mobile,
+            'date_of_birth'=>$data->date_of_birth,
+            
             // "token" => $data['token'],
             // 'user' => $data['user'],
         ];

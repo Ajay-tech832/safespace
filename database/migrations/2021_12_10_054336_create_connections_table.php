@@ -17,8 +17,8 @@ class CreateConnectionsTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->bigInteger('recipient_id')->unsigned()->nullable();
-            $table->foreign('recipient_id')->references('id')->on('recipients');
+            $table->bigInteger('friend_id')->unsigned()->nullable();
+            $table->foreign('friend_id')->references('id')->on('users');
             $table->enum('status', ['request', 'accept','reject'])->nullable();
             $table->boolean('is_active')->default(0); 
             $table->boolean('is_delete')->default(0);

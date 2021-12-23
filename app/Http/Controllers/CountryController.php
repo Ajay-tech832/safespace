@@ -9,10 +9,17 @@ use Illuminate\Http\Request;
 
 class CountryController extends Controller
 {
-    public function getCountries()
+    public function getCountries(Request $request)
     {
         try {
-            $countrys= Country::all();
+            $countrys= Country::where([
+                ['name', '!=', Null],
+                [function ($query) use ($request){
+                if(($name = $request->name)){
+                    $query->orWhere('name','LIKE','%' . $name . '%');
+                } 
+                }]
+            ])->orderBy('id','ASC')->get();
 
             return fractal()->collection($countrys)->transformWith(new CountryTransformer)->toArray();
         }catch (Exception $e) {
@@ -22,9 +29,14 @@ class CountryController extends Controller
 
     public function addCountries(CountryRequest $request)
     {
-       $country = new Country;
-       $country->code = $request->input('code');
-       $country->name = $request->input('name');
-       $country->save();
+        try {
+            $country = new Country;
+            $country->code = $request->input('code');
+            $country->name = $request->input('name');
+            $country->save();
+        }catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()],  500);
+        }
+       
     }
 }

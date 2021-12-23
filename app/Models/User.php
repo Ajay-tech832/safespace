@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Lumen\Auth\Authorizable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Models\FeedPost;
+use App\Models\Like;
 
 class User extends Model implements JWTSubject, AuthenticatableContract, AuthorizableContract
 {
@@ -59,5 +61,20 @@ class User extends Model implements JWTSubject, AuthenticatableContract, Authori
      /**
      * Get the user's social identities.
      */
+
+     public function likedFeedPosts()
+     {
+         return $this->belongsToMany(FeedPost::class,'likes','user_id','feed_post_id');
+     }
+
+     public function feedPostlikes()
+     {
+         return $this->hasMany(Like::class);
+     }
+
+     public function friends()
+     {
+         return $this->belongsToMany(User::class,'connections','user_id','friend_id');
+     }
    
 }

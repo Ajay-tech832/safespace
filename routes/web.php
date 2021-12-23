@@ -49,7 +49,7 @@ $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->post('add-questions','QuestionController@addQuestions');
     $router->post('answers','AnswerController@getAnswers');
     $router->post('add-answers','AnswerController@addAnswers');
-    $router->get('countries','CountryController@getCountries');
+    $router->post('countries','CountryController@getCountries');
     $router->get('feeds','FeedController@getFeeds');
     $router->post('add-feeds','FeedController@addFeeds');
     $router->post('update-feeds','FeedController@updateFeeds');
@@ -58,7 +58,12 @@ $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->get('feed-post','FeedController@getFeedPosts');
     $router->post('add-feed-post','FeedController@addFeedPosts');
     $router->post('update-feed-post','FeedController@updateFeedPosts');
-    
+    $router->get('feed-post/like','FeedController@getPostLikes');
+    $router->post('feed-post/like','FeedController@addPostLikes');
+    $router->get('user/friends','UserController@userFriends');
+    $router->post('user/friends','UserController@addUserFriends');
+    $router->post('user/friends-delete','UserController@removeUserFriends');
+
     $router->get('location','FeedController@deviceLocation');
 });
 

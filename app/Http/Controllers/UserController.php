@@ -5,7 +5,9 @@ use Exception;
 use Illuminate\Support\Facades\Auth;
 use App\Models\UserHobbie;
 use App\Models\UserPlan;
+use App\Models\Connection;
 use App\Transformers\UserPlanTransformer;
+use App\Transformers\UserTransformer;
 use App\Transformers\HobbiesTransformer;
 use App\Transformers\UserHobbieTransformer;
 use Illuminate\Http\Request;
@@ -114,6 +116,42 @@ class UserController extends Controller
             return response()->json(["message"=>'Plan Successfully Updated'],200);
         }catch (Exception $e) {
             return response()->json(['message' => $e->getMessage()],  500);
+        }
+    }
+
+    public function userFriends()
+    {
+       try {
+        $friends = Auth::user()->friends()->get();
+        return fractal()->collection($friends)->transformWith(new UserTransformer())->toArray();
+       }catch (Exception $e){
+           return response()->json(['message' => $e->getMessage()],  500);
+       }
+    }
+
+    public function addUserFriends(Request $request)
+    {
+        try{
+            $user_friends = $request->user_friends;
+            foreach($user_friends as $user_friend){
+
+                Auth::user()->friends()->attach($user_friend); 
+            }
+            
+           return response()->json(["message"=>'User Friends Added Successfully']);
+        }catch (Exception $e) {
+           return response()->json(['message' => $e->getMessage()],  500);
+        }
+    }
+
+    public function removeUserFriends(Request $request)
+    {
+        try {
+             Auth::user()->friends()->detach([3]);
+
+             return response()->json(["message"=>'User Friend Removed Successfully']);
+        }catch (Exception $e){
+            return response()->json(['message' => $e->getMessage()], 500);
         }
     }
 

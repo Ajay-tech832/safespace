@@ -32,6 +32,7 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
+        '3109cb1a231dcd04bee1f9f620d46975' => __DIR__ . '/..' . '/paragonie/sodium_compat/autoload.php',
         'bee9632da3ca00a99623b9c35d0c4f8b' => __DIR__ . '/..' . '/laravel/lumen-framework/src/helpers.php',
         'ab9b68c5b1def6f80e89be13eb0a4be3' => __DIR__ . '/..' . '/spatie/laravel-fractal/src/helpers.php',
     );
@@ -92,6 +93,7 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         ),
         'P' => 
         array (
+            'Pusher\\' => 7,
             'Psy\\' => 4,
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
@@ -347,6 +349,10 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'Ramsey\\Collection\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/collection/src',
+        ),
+        'Pusher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pusher/pusher-php-server/src',
         ),
         'Psy\\' => 
         array (
@@ -690,12 +696,14 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'App\\Http\\Requests\\FeedDetailRequest' => __DIR__ . '/../..' . '/app/Http/Requests/FeedDetailRequest.php',
         'App\\Http\\Requests\\FeedPostRequest' => __DIR__ . '/../..' . '/app/Http/Requests/FeedPostRequest.php',
         'App\\Http\\Requests\\FeedRequest' => __DIR__ . '/../..' . '/app/Http/Requests/FeedRequest.php',
+        'App\\Http\\Requests\\PlanRequest' => __DIR__ . '/../..' . '/app/Http/Requests/PlanRequest.php',
         'App\\Http\\Requests\\QuestionRequest' => __DIR__ . '/../..' . '/app/Http/Requests/QuestionRequest.php',
         'App\\Http\\Requests\\facebookUserRequest' => __DIR__ . '/../..' . '/app/Http/Requests/facebookUserRequest.php',
         'App\\Http\\Requests\\imageRequest' => __DIR__ . '/../..' . '/app/Http/Requests/imageRequest.php',
         'App\\Http\\Requests\\userHobbiesAddRequest' => __DIR__ . '/../..' . '/app/Http/Requests/userHobbiesAddRequest.php',
         'App\\Jobs\\ExampleJob' => __DIR__ . '/../..' . '/app/Jobs/ExampleJob.php',
         'App\\Jobs\\Job' => __DIR__ . '/../..' . '/app/Jobs/Job.php',
+        'App\\Lib\\PusherFactory' => __DIR__ . '/../..' . '/app/Lib/PusherFactory.php',
         'App\\Listeners\\ExampleListener' => __DIR__ . '/../..' . '/app/Listeners/ExampleListener.php',
         'App\\Models\\About' => __DIR__ . '/../..' . '/app/Models/About.php',
         'App\\Models\\Answer' => __DIR__ . '/../..' . '/app/Models/Answer.php',
@@ -739,11 +747,14 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'App\\Transformers\\FeedTransformer' => __DIR__ . '/../..' . '/app/Transformers/FeedTransformer.php',
         'App\\Transformers\\HobbiesTransformer' => __DIR__ . '/../..' . '/app/Transformers/HobbiesTransformer.php',
         'App\\Transformers\\ImageTransformer' => __DIR__ . '/../..' . '/app/Transformers/ImageTransformer.php',
+        'App\\Transformers\\LikeTransformer' => __DIR__ . '/../..' . '/app/Transformers/LikeTransformer.php',
         'App\\Transformers\\MemberTransformer' => __DIR__ . '/../..' . '/app/Transformers/MemberTransformer.php',
         'App\\Transformers\\MessageTransformer' => __DIR__ . '/../..' . '/app/Transformers/MessageTransformer.php',
         'App\\Transformers\\NotificationTransformer' => __DIR__ . '/../..' . '/app/Transformers/NotificationTransformer.php',
         'App\\Transformers\\PlanTransformer' => __DIR__ . '/../..' . '/app/Transformers/PlanTransformer.php',
         'App\\Transformers\\QuestionTransformer' => __DIR__ . '/../..' . '/app/Transformers/QuestionTransformer.php',
+        'App\\Transformers\\UserHobbieTransformer' => __DIR__ . '/../..' . '/app/Transformers/UserHobbieTransformer.php',
+        'App\\Transformers\\UserPlanTransformer' => __DIR__ . '/../..' . '/app/Transformers/UserPlanTransformer.php',
         'App\\Transformers\\UserProfileTransformer' => __DIR__ . '/../..' . '/app/Transformers/UserProfileTransformer.php',
         'App\\Transformers\\UserTransformer' => __DIR__ . '/../..' . '/app/Transformers/UserTransformer.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
@@ -4012,6 +4023,13 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'Psy\\VersionUpdater\\GitHubChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/GitHubChecker.php',
         'Psy\\VersionUpdater\\IntervalChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/IntervalChecker.php',
         'Psy\\VersionUpdater\\NoopChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/NoopChecker.php',
+        'Pusher\\ApiErrorException' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/ApiErrorException.php',
+        'Pusher\\Pusher' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/Pusher.php',
+        'Pusher\\PusherCrypto' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherCrypto.php',
+        'Pusher\\PusherException' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherException.php',
+        'Pusher\\PusherInstance' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherInstance.php',
+        'Pusher\\PusherInterface' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherInterface.php',
+        'Pusher\\Webhook' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/Webhook.php',
         'Ramsey\\Collection\\AbstractArray' => __DIR__ . '/..' . '/ramsey/collection/src/AbstractArray.php',
         'Ramsey\\Collection\\AbstractCollection' => __DIR__ . '/..' . '/ramsey/collection/src/AbstractCollection.php',
         'Ramsey\\Collection\\AbstractSet' => __DIR__ . '/..' . '/ramsey/collection/src/AbstractSet.php',

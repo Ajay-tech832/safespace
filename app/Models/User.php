@@ -76,5 +76,7 @@ class User extends Model implements JWTSubject, AuthenticatableContract, Authori
      {
          return $this->belongsToMany(User::class,'connections','user_id','friend_id');
      }
+
+     
    
 }

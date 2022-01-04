@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Message;
 use App\Transformers\MessageTransformer;
@@ -19,4 +20,5 @@ class MessageController extends Controller
         
         }
     }
+
 }

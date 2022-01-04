@@ -17,6 +17,8 @@ class CreateMessagesTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('recipient_id')->unsigned()->nullable();
+            $table->foreign('recipient_id')->references('id')->on('users');
             $table->bigInteger('chat_id')->unsigned()->nullable();
             $table->foreign('chat_id')->references('id')->on('chats');
             $table->text('message')->nullable();

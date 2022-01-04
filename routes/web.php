@@ -63,6 +63,9 @@ $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->get('user/friends','UserController@userFriends');
     $router->post('user/friends','UserController@addUserFriends');
     $router->post('user/friends-delete','UserController@removeUserFriends');
+    $router->post('latest-message','MessageController@getLoadLatestMessages');
+    $router->post('sendOtp','UserController@sendOtp');  
+    $router->post('verifyOtp','UserController@verifyOtp');
 
     $router->get('location','FeedController@deviceLocation');
 });

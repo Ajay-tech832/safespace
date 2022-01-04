@@ -12,6 +12,9 @@ use App\Transformers\HobbiesTransformer;
 use App\Transformers\UserHobbieTransformer;
 use Illuminate\Http\Request;
 use App\Http\Requests\userHobbiesAddRequest;
+use App\Models\User;
+use App\MSG91;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -153,6 +156,66 @@ class UserController extends Controller
         }catch (Exception $e){
             return response()->json(['message' => $e->getMessage()], 500);
         }
+    }
+
+
+    public function sendOtp(Request $request)
+    {
+
+      try {
+        $response = array();
+        $userId = Auth::user()->id;
+
+        $users = User::where('id', $userId)->first();
+        if(isset($users['mobile']) && $users['mobile'] == ""){
+            return response()->json(['message' => 'Invalid mobile number']);
+        }else{
+             $otp = rand(100000, 999999);
+             $MSG91 = new MSG91();
+
+            $msg91Response = $MSG91->sendSMS($otp,$users['mobile']);
+            $response['message'] = 'Your OTP is created.';
+            $response['OTP'] = $otp;
+
+            $users->otp = $otp;
+            $users->save();
+            
+            }
+            return response()->json(['message' => $response]);
+      }catch (Exception $e) {
+          return response()->json(['message' => $e->getMessage()],  500);
+      }
+       
+    }
+
+    public function verifyOtp(Request $request)
+    {
+       try{
+        $response = array();
+        $enteredOtp = $request->input('otp');
+        $userId = Auth::user()->id;
+
+        if($userId == "" || $userId== null){
+           $response['message'] = 'You are logged out, Login again.';    
+        }else{
+            $users = User::where('id', $userId)->first();
+            $OTP = $users->otp;
+            if($OTP === $enteredOtp){
+
+                User::where('id',$userId)->update(['isVerified' => 1]);
+
+                $response['isVerified'] = 1;
+                $response['message'] = "Your Number is Verified.";
+            }else{
+                $response['isVerified'] = 0;
+                $response['message'] = "OTP does not match.";
+            }
+        }
+        return response()->json(['message' =>$response]);
+       }catch (Exception $e) {
+           return response()->json(['message' => $e->getMessage()],  500);
+       }
+        
     }
 
 }

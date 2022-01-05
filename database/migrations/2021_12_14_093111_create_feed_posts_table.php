@@ -19,10 +19,10 @@ class CreateFeedPostsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('feed_id')->unsigned()->nullable();
             $table->foreign('feed_id')->references('id')->on('feeds');
-            $table->string('heading')->nullable();
-            $table->string('sub_heading')->nullable();
-            $table->string('about')->nullable();
-            $table->string('description_heading')->nullable();
+            $table->string('heading',255)->nullable();
+            $table->string('sub_heading',255)->nullable();
+            $table->string('about',300)->nullable();
+            $table->string('description_heading',255)->nullable();
             $table->text('description')->nullable();
             $table->text('image_path')->nullable();
             $table->bigInteger('like')->unsigned()->nullable();

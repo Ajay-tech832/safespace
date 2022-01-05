@@ -15,7 +15,7 @@ class CreateHobbiesTable extends Migration
     {
         Schema::create('hobbies', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            $table->string('name',100)->nullable();
             $table->string('icon')->nullable();
             $table->timestamps();
         });

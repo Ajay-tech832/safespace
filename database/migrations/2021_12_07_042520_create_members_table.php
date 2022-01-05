@@ -17,7 +17,7 @@ class CreateMembersTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->enum('is_visible_profile', ['yes', 'no'])->nullable();
+            $table->enum('is_visible_profile', ['1', '0'])->nullable();
             $table->enum('orientation', ['pansexual', 'transgender','lesbian'])->nullable();
             $table->enum('relationship_status', ['single', 'commited','enganged','married','divorce','widowered','prefer not to say'])->nullable();
             $table->enum('looking_for', ['chat', 'dates','friends','network','relationship'])->nullable();

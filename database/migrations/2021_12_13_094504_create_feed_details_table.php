@@ -19,8 +19,8 @@ class CreateFeedDetailsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('feed_id')->unsigned()->nullable();
             $table->foreign('feed_id')->references('id')->on('feeds');
-            $table->string('heading')->nullable();
-            $table->string('sub_heading')->nullable();
+            $table->string('heading',255)->nullable();
+            $table->string('sub_heading',255)->nullable();
             $table->text('about')->nullable();
             $table->text('goal')->nullable();
             $table->boolean('is_active')->default(0); 

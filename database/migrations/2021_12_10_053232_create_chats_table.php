@@ -19,7 +19,7 @@ class CreateChatsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('recipient_id')->unsigned()->nullable();
             $table->foreign('recipient_id')->references('id')->on('recipients');
-            $table->string('chat_topic')->nullable();
+            $table->string('chat_topic',100)->nullable();
             $table->boolean('is_active')->default(0); 
             $table->boolean('is_delete')->default(0);
             $table->bigInteger('created_by');

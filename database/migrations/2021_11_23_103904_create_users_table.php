@@ -15,17 +15,17 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('full_name');
-            $table->string('first_name')->nullable();
-            $table->string('last_name')->nullable();
-            $table->string('email')->unique();
-            $table->string('mobile')->nullable();
-            $table->string('otp')->nullable();
+            $table->string('full_name',55);
+            $table->string('first_name',25)->nullable();
+            $table->string('last_name',25)->nullable();
+            $table->string('email',100)->unique();
+            $table->string('mobile',15)->nullable();
+            $table->string('otp',100)->nullable();
             $table->enum('isVerified', ['1', '0'])->nullable();
-            $table->string('password')->nullable();
+            $table->string('password',255)->nullable();
             $table->date('date_of_birth')->nullable();
             $table->enum('gender', ['male', 'female'])->nullable();
-            $table->string('facebook_id')->nullable();
+            $table->text('facebook_id')->nullable();
             $table->enum('visible_profile', ['yes', 'no'])->nullable();
             $table->string('orientation')->nullable();
             $table->string('relationship_status')->nullable();

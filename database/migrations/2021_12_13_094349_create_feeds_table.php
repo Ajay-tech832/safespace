@@ -17,7 +17,7 @@ class CreateFeedsTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('heading')->nullable();
+            $table->string('heading',255)->nullable();
             $table->enum('status', ['join', 'joined'])->nullable();
             $table->text('path')->nullable();
             $table->boolean('is_active')->default(0); 

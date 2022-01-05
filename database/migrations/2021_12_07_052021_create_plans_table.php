@@ -15,11 +15,11 @@ class CreatePlansTable extends Migration
     {
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            $table->string('name',200)->nullable();
             $table->bigInteger('duration_amount')->nullable();
             $table->enum('duration_type', ['day', 'month','year'])->nullable();
-            $table->string('price')->nullable();
-            $table->string('description')->nullable();
+            $table->string('price',150)->nullable();
+            $table->string('description',255)->nullable();
             $table->boolean('is_active')->default(0); 
             $table->boolean('is_delete')->default(0);
             $table->bigInteger('created_by');

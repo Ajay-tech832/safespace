@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'f8597a581f15b18d0724eb7f7dbd831b6cad2a7b',
+        'reference' => '25553429e56092b762c4154c31455375c439b9ed',
         'name' => 'laravel/lumen',
         'dev' => true,
     ),
@@ -436,6 +436,15 @@
             'reference' => '85a20375dc9083191eb5350a6a9e4a392ebb3148',
             'dev_requirement' => false,
         ),
+        'irazasyed/larasupport' => array(
+            'pretty_version' => 'v1.7.1',
+            'version' => '1.7.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../irazasyed/larasupport',
+            'aliases' => array(),
+            'reference' => '5860adc79ee5dd7e62e2f83ac12c1815cc57b5e1',
+            'dev_requirement' => false,
+        ),
         'kodova/hamcrest-php' => array(
             'dev_requirement' => true,
             'replaced' => array(
@@ -448,7 +457,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'f8597a581f15b18d0724eb7f7dbd831b6cad2a7b',
+            'reference' => '25553429e56092b762c4154c31455375c439b9ed',
             'dev_requirement' => false,
         ),
         'laravel/lumen-framework' => array(
@@ -478,6 +487,15 @@
             'reference' => 'b5c67f187ddcf15529ff7217fa735b132620dfac',
             'dev_requirement' => false,
         ),
+        'laravelista/lumen-vendor-publish' => array(
+            'pretty_version' => '8.0.0',
+            'version' => '8.0.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laravelista/lumen-vendor-publish',
+            'aliases' => array(),
+            'reference' => '0ca682e0d236f8b085e6ac2cf33912ddb4702f52',
+            'dev_requirement' => false,
+        ),
         'lcobucci/jwt' => array(
             'pretty_version' => '3.2.5',
             'version' => '3.2.5.0',
@@ -494,7 +512,7 @@
             'install_path' => __DIR__ . '/../league/flysystem',
             'aliases' => array(),
             'reference' => '094defdb4a7001845300334e7c1ee2335925ef99',
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
         'league/fractal' => array(
             'pretty_version' => '0.19.2',
@@ -512,7 +530,7 @@
             'install_path' => __DIR__ . '/../league/mime-type-detection',
             'aliases' => array(),
             'reference' => 'aa70e813a6ad3d1558fc927863d47309b4c23e69',
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
         'league/oauth1-client' => array(
             'pretty_version' => 'v1.10.0',

@@ -21,6 +21,8 @@ class UserProfileTransformer extends TransformerAbstract
            "date_of_birth"=>$data['date_of_birth'],
            "gender"=>$data['gender'],
            "visible_profile"=>$data['visible_profile'],
+           "path" => fractal()->collection($data->profileImage)->transformWith(new ImageTransformer)->serializeWith(new \Spatie\Fractalistic\ArraySerializer())->toArray(),
+           "member" => fractal()->collection($data->members)->transformWith(new MemberTransformer)->serializeWith(new \Spatie\Fractalistic\ArraySerializer())->toArray(),
         ];
     }
 }

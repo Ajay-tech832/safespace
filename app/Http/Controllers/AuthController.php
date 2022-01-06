@@ -1,22 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-use Laravel\Socialite\Two\FacebookProvider;
 use Laravel\Socialite\Facades\Socialite;
-use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Arr;
 use App\Http\Requests\facebookUserRequest;
 use Illuminate\Http\Request;
-use  App\Models\User;
+use App\Models\User;
 use App\Transformers\UserTransformer;
 use App\Transformers\UserProfileTransformer;
-use Laravel\Lumen\Routing\Controller as BaseController;
-use Facebook\Facebook;
-use Facebook\Exceptions\FacebookResponseException;
-use Facebook\Exceptions\FacebookSDKException;
 
 
 class AuthController extends Controller
@@ -40,54 +34,70 @@ class AuthController extends Controller
     }
 
 
-    public function registerFacebookUser(facebookUserRequest $request){
+    public function registerFacebookUser(facebookUserRequest $request)
+    {
+      try{
+            $access_token = $request->token;
+            $client = new \GuzzleHttp\Client();
+            $response = $client->request('GET', 'https://graph.facebook.com/me?access_token='.$access_token, [
+              'headers' => [
+                  'Accept' => 'application/json',
+                  'Authorization' => $access_token,
+                  'Content-Type' => 'application/json',
+              ],
+            ]);
+            $response = json_decode($response->getBody(),true);
 
-        $access_token = $request->token;
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request('GET', 'https://graph.facebook.com/me?access_token='.$access_token, [
-          'headers' => [
-            'Accept' => 'application/json',
-            'Authorization' => $access_token,
-            'Content-Type' => 'application/json',
-          ],
-        ]);
-        $response = json_decode($response->getBody(),true);
-
+            $user = User::where('facebook_id' , $response['id'])->first();
+            if(empty($user)){
+                $profile = $client->request('GET', 'https://graph.facebook.com/'.$response['id'].'?fields=id,first_name,last_name,name,email&access_token='.$access_token, [
+                      'headers' => [
+                          'Accept' => 'application/json',
+                          'Authorization' => $access_token,
+                          'Content-Type' => 'application/json',
+                      ],
+                    ]);
+                    $profile = json_decode($profile->getBody(),true);
+                    $data = array(
+                                    "full_name"=>$profile['name'],
+                                    "first_name"=>$profile['first_name'],
+                                    "last_name"=>$profile['last_name'],
+                                    "email"=>$profile['email'],
+                                    "password"=>Hash::make('password'),
+                                    "facebook_id"=>$profile['id'],
+                    );
+                    $user = User::create($data);
+            }
+            $token = Auth::login($user);
+            return response()->json(['token'=>$token,'user'=>$user],200);
+       }catch (Exception $e) {
+        return response()->json(['message' => $e->getMessage()],  500);
+       } 
         
-        $user = User::where('facebook_id' , $response['id'])->first();
-        if(empty($user)){
-            $profile = $client->request('GET', 'https://graph.facebook.com/'.$response['id'].'?fields=id,first_name,last_name,name,email&access_token='.$access_token, [
-                  'headers' => [
-                    'Accept' => 'application/json',
-                    'Authorization' => $access_token,
-                    'Content-Type' => 'application/json',
-                  ],
-                ]);
-                $profile = json_decode($profile->getBody(),true);
-                $data = array(
-                                "full_name"=>$profile['name'],
-                                "first_name"=>$profile['first_name'],
-                                "last_name"=>$profile['last_name'],
-                                "email"=>$profile['email'],
-                                "password"=>Hash::make('password'),
-                                "facebook_id"=>$profile['id'],
-                );
-                $user = User::create($data);
-        }
-        $token = Auth::login($user);
-        //return fractal()->item($data)->transformWith(new UserTransformer())->toArray();
-        return response()->json(['token'=>$token,'user'=>$user],200);
     }  
 
-    public function getUser(){
-        try{
-            $user= Auth::user(); 
-            return fractal()->item($user)->transformWith(new UserProfileTransformer())->toArray();
-            //return response()->json($user,200);
-        } catch (\Exception $e){
-            return response()->json(['message'=>'User Update Fail'],201);
+    public function getUser()
+    {
+      try{
+          $user = User::with('profileImage','members')->where('id', Auth::id())->get();
+          return fractal()->collection($user)->transformWith(new UserProfileTransformer())->toArray();
+        }catch (Exception $e) {
+          return response()->json(['message' => $e->getMessage]);
         }
+          
     }
+
+    // public function getUser(){
+    //     try{
+    //         $user= Auth::user(); 
+    //         return fractal()->item($user)->transformWith(new UserProfileTransformer())->toArray();
+    //         //return response()->json($user,200);
+    //     } catch (Exception $e){
+    //         return response()->json(['message'=>'Some thing went wrong'],201);
+    //     }
+    // }
+
+
     public function userUpdate(Request $request){
 
        try{
@@ -139,8 +149,9 @@ class AuthController extends Controller
             }
             
             $user->save();
+
             return response()->json($user,200);
-        } catch (\Exception $e){
+        } catch (Exception $e){
             return response()->json(['message'=>'User Update Fail'],201);
         }
     }

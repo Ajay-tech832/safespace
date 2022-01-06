@@ -2969,6 +2969,67 @@
             "install-path": "../illuminate/view"
         },
         {
+            "name": "irazasyed/larasupport",
+            "version": "v1.7.1",
+            "version_normalized": "1.7.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/irazasyed/larasupport.git",
+                "reference": "5860adc79ee5dd7e62e2f83ac12c1815cc57b5e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/irazasyed/larasupport/zipball/5860adc79ee5dd7e62e2f83ac12c1815cc57b5e1",
+                "reference": "5860adc79ee5dd7e62e2f83ac12c1815cc57b5e1",
+                "shasum": ""
+            },
+            "require": {
+                "league/flysystem": "^1.0"
+            },
+            "time": "2020-10-19T06:26:37+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Irazasyed\\Larasupport\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Irfaq Syed",
+                    "email": "syed+gh@lukonet.com",
+                    "homepage": "https://github.com/irazasyed"
+                }
+            ],
+            "description": "Adds Laravel Package Support in Lumen.",
+            "keywords": [
+                "larasupport",
+                "laravel",
+                "laravel lumen support",
+                "laravel package support",
+                "laravel packages",
+                "lumen packages",
+                "lumen support"
+            ],
+            "support": {
+                "issues": "https://github.com/irazasyed/larasupport/issues",
+                "source": "https://github.com/irazasyed/larasupport/tree/v1.7.1"
+            },
+            "install-path": "../irazasyed/larasupport"
+        },
+        {
             "name": "laravel/lumen-framework",
             "version": "v8.3.2",
             "version_normalized": "8.3.2.0",
@@ -3201,6 +3262,66 @@
                 "source": "https://github.com/laravel/socialite"
             },
             "install-path": "../laravel/socialite"
+        },
+        {
+            "name": "laravelista/lumen-vendor-publish",
+            "version": "8.0.0",
+            "version_normalized": "8.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravelista/lumen-vendor-publish.git",
+                "reference": "0ca682e0d236f8b085e6ac2cf33912ddb4702f52"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravelista/lumen-vendor-publish/zipball/0ca682e0d236f8b085e6ac2cf33912ddb4702f52",
+                "reference": "0ca682e0d236f8b085e6ac2cf33912ddb4702f52",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^8.0",
+                "illuminate/filesystem": "^8.0",
+                "illuminate/support": "^8.0",
+                "league/flysystem": "^1.0.8"
+            },
+            "time": "2020-10-29T13:38:49+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Laravelista\\LumenVendorPublish\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mario Bašić",
+                    "email": "mario@laravelista.hr"
+                }
+            ],
+            "description": "vendor:publish for Lumen framework.",
+            "keywords": [
+                "command",
+                "console",
+                "lumen",
+                "publish",
+                "vendor"
+            ],
+            "support": {
+                "issues": "https://github.com/laravelista/lumen-vendor-publish/issues",
+                "source": "https://github.com/laravelista/lumen-vendor-publish/tree/8.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://www.patreon.com/laravelista",
+                    "type": "patreon"
+                }
+            ],
+            "abandoned": true,
+            "install-path": "../laravelista/lumen-vendor-publish"
         },
         {
             "name": "lcobucci/jwt",
@@ -9910,8 +10031,6 @@
         "doctrine/instantiator",
         "fakerphp/faker",
         "hamcrest/hamcrest-php",
-        "league/flysystem",
-        "league/mime-type-detection",
         "mockery/mockery",
         "myclabs/deep-copy",
         "phar-io/manifest",

@@ -30,8 +30,9 @@ return array(
     '8825ede83f2f289127722d4e842cf7e8' => $vendorDir . '/symfony/polyfill-intl-grapheme/bootstrap.php',
     '6124b4c8570aa390c21fafd04a26c69f' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
     '253c157292f75eb38082b5acb06f3f01' => $vendorDir . '/nikic/fast-route/src/functions.php',
-    'b6b991a57620e2fb6b2f66f03fe9ddc2' => $vendorDir . '/symfony/string/Resources/functions.php',
     '3109cb1a231dcd04bee1f9f620d46975' => $vendorDir . '/paragonie/sodium_compat/autoload.php',
+    'b6b991a57620e2fb6b2f66f03fe9ddc2' => $vendorDir . '/symfony/string/Resources/functions.php',
+    'df7cc821128228bf36c2141e6b4f8b50' => $vendorDir . '/irazasyed/larasupport/src/helpers.php',
     'bee9632da3ca00a99623b9c35d0c4f8b' => $vendorDir . '/laravel/lumen-framework/src/helpers.php',
     'ab9b68c5b1def6f80e89be13eb0a4be3' => $vendorDir . '/spatie/laravel-fractal/src/helpers.php',
 );

@@ -77,6 +77,14 @@ class User extends Model implements JWTSubject, AuthenticatableContract, Authori
          return $this->belongsToMany(User::class,'connections','user_id','friend_id');
      }
 
-     
+     public function profileImage()
+     {
+         return $this->hasMany(Image::class);
+     }
+
+     public function members()
+     {
+         return $this->hasMany(Member::class);
+     }
    
 }

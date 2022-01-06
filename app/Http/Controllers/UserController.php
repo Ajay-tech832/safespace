@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\userHobbiesAddRequest;
 use App\Models\User;
 use App\MSG91;
-use Illuminate\Support\Facades\Session;
+use Stevebauman\Location\Facades\Location;
 
 class UserController extends Controller
 {
@@ -216,6 +216,13 @@ class UserController extends Controller
            return response()->json(['message' => $e->getMessage()],  500);
        }
         
+    }
+
+    public function deviceLocation()
+    {
+        $ip = '103.239.147.187';
+        $data = Location::get($ip);
+        dd($data);
     }
 
 }

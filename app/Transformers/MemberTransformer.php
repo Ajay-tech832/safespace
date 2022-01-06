@@ -11,7 +11,7 @@ class MemberTransformer extends TransformerAbstract
 
     protected $availableIncludes = [];
 
-    public function transform(Member $data): array
+    public function transform($data): array
     {
         return [
             "is_visible_profile" => $data->is_visible_profile,

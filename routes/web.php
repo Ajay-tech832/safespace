@@ -67,7 +67,7 @@ $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->post('sendOtp','UserController@sendOtp');  
     $router->post('verifyOtp','UserController@verifyOtp');
 
-    $router->get('location','FeedController@deviceLocation');
+    $router->get('location','UserController@deviceLocation');
 });
 
 

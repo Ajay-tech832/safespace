@@ -31,8 +31,9 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
-        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '3109cb1a231dcd04bee1f9f620d46975' => __DIR__ . '/..' . '/paragonie/sodium_compat/autoload.php',
+        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
+        'df7cc821128228bf36c2141e6b4f8b50' => __DIR__ . '/..' . '/irazasyed/larasupport/src/helpers.php',
         'bee9632da3ca00a99623b9c35d0c4f8b' => __DIR__ . '/..' . '/laravel/lumen-framework/src/helpers.php',
         'ab9b68c5b1def6f80e89be13eb0a4be3' => __DIR__ . '/..' . '/spatie/laravel-fractal/src/helpers.php',
     );
@@ -127,12 +128,14 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
             'League\\Fractal\\' => 15,
             'League\\Flysystem\\' => 17,
             'Lcobucci\\JWT\\' => 13,
+            'Laravelista\\LumenVendorPublish\\' => 31,
             'Laravel\\Socialite\\' => 18,
             'Laravel\\SerializableClosure\\' => 28,
             'Laravel\\Lumen\\' => 14,
         ),
         'I' => 
         array (
+            'Irazasyed\\Larasupport\\' => 22,
             'Illuminate\\View\\' => 16,
             'Illuminate\\Validation\\' => 22,
             'Illuminate\\Translation\\' => 23,
@@ -439,6 +442,10 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         array (
             0 => __DIR__ . '/..' . '/lcobucci/jwt/src',
         ),
+        'Laravelista\\LumenVendorPublish\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravelista/lumen-vendor-publish/src',
+        ),
         'Laravel\\Socialite\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/socialite/src',
@@ -450,6 +457,10 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'Laravel\\Lumen\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/lumen-framework/src',
+        ),
+        'Irazasyed\\Larasupport\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/irazasyed/larasupport/src',
         ),
         'Illuminate\\View\\' => 
         array (
@@ -703,7 +714,6 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'App\\Http\\Requests\\userHobbiesAddRequest' => __DIR__ . '/../..' . '/app/Http/Requests/userHobbiesAddRequest.php',
         'App\\Jobs\\ExampleJob' => __DIR__ . '/../..' . '/app/Jobs/ExampleJob.php',
         'App\\Jobs\\Job' => __DIR__ . '/../..' . '/app/Jobs/Job.php',
-        'App\\Lib\\PusherFactory' => __DIR__ . '/../..' . '/app/Lib/PusherFactory.php',
         'App\\Listeners\\ExampleListener' => __DIR__ . '/../..' . '/app/Listeners/ExampleListener.php',
         'App\\Models\\About' => __DIR__ . '/../..' . '/app/Models/About.php',
         'App\\Models\\Answer' => __DIR__ . '/../..' . '/app/Models/Answer.php',
@@ -2628,6 +2638,8 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/illuminate/view/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/illuminate/view/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/illuminate/view/ViewServiceProvider.php',
+        'Irazasyed\\Larasupport\\Console\\VendorPublishCommand' => __DIR__ . '/..' . '/irazasyed/larasupport/src/Console/VendorPublishCommand.php',
+        'Irazasyed\\Larasupport\\Providers\\ArtisanServiceProvider' => __DIR__ . '/..' . '/irazasyed/larasupport/src/Providers/ArtisanServiceProvider.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'Laravel\\Lumen\\Application' => __DIR__ . '/..' . '/laravel/lumen-framework/src/Application.php',
         'Laravel\\Lumen\\Auth\\Authorizable' => __DIR__ . '/..' . '/laravel/lumen-framework/src/Auth/Authorizable.php',
@@ -2689,6 +2701,7 @@ class ComposerStaticInit9e0a2d907e576bda05dae495c652101b
         'Laravel\\Socialite\\Two\\LinkedInProvider' => __DIR__ . '/..' . '/laravel/socialite/src/Two/LinkedInProvider.php',
         'Laravel\\Socialite\\Two\\ProviderInterface' => __DIR__ . '/..' . '/laravel/socialite/src/Two/ProviderInterface.php',
         'Laravel\\Socialite\\Two\\User' => __DIR__ . '/..' . '/laravel/socialite/src/Two/User.php',
+        'Laravelista\\LumenVendorPublish\\VendorPublishCommand' => __DIR__ . '/..' . '/laravelista/lumen-vendor-publish/src/VendorPublishCommand.php',
         'Lcobucci\\JWT\\Builder' => __DIR__ . '/..' . '/lcobucci/jwt/src/Builder.php',
         'Lcobucci\\JWT\\Claim' => __DIR__ . '/..' . '/lcobucci/jwt/src/Claim.php',
         'Lcobucci\\JWT\\Claim\\Basic' => __DIR__ . '/..' . '/lcobucci/jwt/src/Claim/Basic.php',

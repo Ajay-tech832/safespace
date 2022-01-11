@@ -23,6 +23,9 @@ $router->get('callbackFacebook', 'AuthController@callbackFromFacebook');
 
 $router->post('registerFacebookUser', 'AuthController@registerFacebookUser');
 
+$router->post('createMobileOtp', 'AuthController@sendMobileOtp');
+$router->post('otpverifywithLogin', 'AuthController@otpverifyWithLogin');
+
 $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->put('user', 'AuthController@userUpdate');
     $router->get('user', 'AuthController@getUser');

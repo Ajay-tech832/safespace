@@ -156,5 +156,44 @@ class AuthController extends Controller
         }
     }
 
+    public function sendMobileOtp(Request $request)
+    {
+        try{
+          $otp = rand(100000, 999999);
+          $user = new User;
+          $user->mobile = $request->input('mobile');
+          $user->otp = $otp;
+          $user->save();
+          $response['message'] = 'Your OTP is created.';
+          $response['OTP'] = $otp;
 
+          return response()->json(['message' => $response]);
+        }catch (Exception $e){
+          return response()->json(['message' => $e->getMessage()]);
+        }
+          
+    }
+
+    public function otpverifyWithLogin(Request $request)
+    {
+        try{
+          $user = User::where('mobile', $request->input('mobile'))->firstOrFail();
+          if($user->otp == $request->otp)
+          {
+            if(!$token = Auth::fromUser($user))
+            {
+              return response()->json(['message' =>'Unauthorized'],401);
+            }
+            }else{
+             return response()->json(['message' =>'Invalid OTP'],401);
+            }
+            User::where('mobile',$request->input('mobile'))->update(['isVerified' => 1]);
+ 
+            return response()->json(['token'=>$token,'user'=>$user],200);
+        }catch (Exception $e){
+          return response()->json(['message' => $e->getMessage()]);
+        }
+    }
+
+   
 }

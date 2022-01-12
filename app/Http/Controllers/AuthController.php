@@ -8,7 +8,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\facebookUserRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\MobileOtpRequest;
+use App\Http\Requests\MobileLoginRequest;
 use App\Models\User;
+use App\MSG91;
 use App\Transformers\UserTransformer;
 use App\Transformers\UserProfileTransformer;
 
@@ -156,25 +159,35 @@ class AuthController extends Controller
         }
     }
 
-    public function sendMobileOtp(Request $request)
+    public function sendMobileOtp(MobileOtpRequest $request)
     {
         try{
-          $otp = rand(100000, 999999);
-          $user = new User;
-          $user->mobile = $request->input('mobile');
-          $user->otp = $otp;
-          $user->save();
-          $response['message'] = 'Your OTP is created.';
-          $response['OTP'] = $otp;
+          $user = User::where('mobile', $request->input('mobile'))->first();
+          if(!empty($user->mobile)){
+           return response()->json(['message' =>'This mobile number already exist try other number']);
+          }else{
+            $otp = rand(100000, 999999);
 
-          return response()->json(['message' => $response]);
+            // $MSG91 = new MSG91();
+            // $msg91Response = $MSG91->sendSMS($otp,$request->input('mobile'));
+
+            $user = new User;
+            $user->mobile = $request->input('mobile');
+            $user->otp = $otp;
+            $user->save();
+            $response['message'] = 'Your OTP is created.';
+            $response['OTP'] = $otp;
+  
+            return response()->json(['message' => $response]);
+          }
+          
         }catch (Exception $e){
           return response()->json(['message' => $e->getMessage()]);
         }
           
     }
 
-    public function otpverifyWithLogin(Request $request)
+    public function otpverifyWithLogin(MobileLoginRequest $request)
     {
         try{
           $user = User::where('mobile', $request->input('mobile'))->firstOrFail();

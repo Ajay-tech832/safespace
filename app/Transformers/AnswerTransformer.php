@@ -14,7 +14,8 @@ class AnswerTransformer extends TransformerAbstract
     public function transform(Answer $data): array
     {
         return [
-             "answer" => $data->answer,
+            "question" => fractal()->item($data->question)->transformWith(new QuestionTransformer)->serializeWith(new \Spatie\Fractalistic\ArraySerializer())->toArray(),
+            "answer" => $data->answer,
              
         ];
     }

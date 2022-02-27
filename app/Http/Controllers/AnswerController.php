@@ -10,12 +10,17 @@ use Illuminate\Http\Request;
 
 class AnswerController extends Controller
 {
-   public function getAnswers()
+   public function getAnswers($id)
    {
        try {
-        $answers = Answer::all();
-
-        return fractal()->collection($answers)->transformWith(new AnswerTransformer)->toArray();
+        if(!$id){
+            $data = Answer::all();
+            return fractal()->collection($data)->transformWith(new AnswerTransformer)->toArray();
+        }else{
+           $data = Answer::with('question')->where('question_id',$id)->get();
+           return fractal()->collection($data)->transformWith(new AnswerTransformer)->toArray();
+        }   
+        
        }catch (Exception $e) {
         return response()->json(['message' => $e->getMessage()],  500);
        }

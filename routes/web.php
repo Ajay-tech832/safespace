@@ -49,9 +49,9 @@ $router->group(['middleware' => 'auth:api'], function () use ($router) {
     $router->post('profile-image','ImageController@storeProfileImages');
     $router->post('profile-imageUpdate','ImageController@updateProfileImages');
     $router->get('questions','QuestionController@getQuestions');
-    $router->post('add-questions','QuestionController@addQuestions');
-    $router->post('answers','AnswerController@getAnswers');
-    $router->post('add-answers','AnswerController@addAnswers');
+    $router->post('questions','QuestionController@addQuestions');
+    $router->get('answers/{id}','AnswerController@getAnswers');
+    $router->post('answers','AnswerController@addAnswers');
     $router->post('countries','CountryController@getCountries');
     $router->get('feeds','FeedController@getFeeds');
     $router->post('add-feeds','FeedController@addFeeds');
